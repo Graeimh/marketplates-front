@@ -3,6 +3,8 @@ import styles from "./Home.module.scss";
 import { useContext } from "react";
 import UserContext from "../../Contexts/UserContext";
 import { Link } from "react-router-dom";
+import pot from "../../../assets/pot.svg";
+import spoon from "../../../assets/spoon.svg";
 
 function Home() {
   // Fetching the user's current data
@@ -40,9 +42,9 @@ function Home() {
         </div>
       </article>
       <span id={styles.spoonWrapper}>
-        <img src="src/assets/spoon.svg" alt="Pot" id={styles.spoon} />
+        <img src={pot} alt="Pot" id={styles.spoon} />
       </span>
-      <img src="src/assets/pot.svg" alt="Spoon" id={styles.pot} />
+      <img src={spoon} alt="Spoon" id={styles.pot} />
     </>
   );
 }
