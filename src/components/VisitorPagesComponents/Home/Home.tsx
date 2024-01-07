@@ -42,9 +42,9 @@ function Home() {
         </div>
       </article>
       <span id={styles.spoonWrapper}>
-        <img src={pot} alt="Pot" id={styles.spoon} />
+        <img src={spoon} alt="Spoon" id={styles.spoon} />
       </span>
-      <img src={spoon} alt="Spoon" id={styles.pot} />
+      <img src={pot} alt="Pot" id={styles.pot} />
     </>
   );
 }
