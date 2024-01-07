@@ -1,0 +1,5 @@
+/* Centering all contents within the app container */
+#root {
+  margin: 0 auto;
+  min-width: 100%;
+}
