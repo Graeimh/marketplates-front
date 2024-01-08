@@ -35,6 +35,10 @@ function EditProfile(props: {
 
   const navigate = useNavigate();
 
+  // Regex for email validation
+  const emailPattern =
+    /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/;
+
   // When the user's access token is reset, pull the values anew if possible
   useEffect(() => {
     getUserData();
@@ -85,7 +89,8 @@ function EditProfile(props: {
         formData.country.length > 1 &&
         formData.county.length > 1 &&
         formData.city.length > 1 &&
-        formData.streetAddress.length > 1
+        formData.streetAddress.length > 1 &&
+        emailPattern.test(formData.email)
     );
   }
   // Passwords aren't modified yet because this time of modification isn't considered secure yet.

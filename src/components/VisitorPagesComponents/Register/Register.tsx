@@ -52,6 +52,10 @@ function Register(props: { messageSetter: React.Dispatch<IMessageValues> }) {
 
   const navigate = useNavigate();
 
+  // Regex for email validation
+  const emailPattern =
+    /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/;
+
   // Each time an input is modified we check if the form is valid for sending
   useEffect(() => {
     decideRegistration();
@@ -69,7 +73,8 @@ function Register(props: { messageSetter: React.Dispatch<IMessageValues> }) {
         formData.country.length > 1 &&
         formData.county.length > 1 &&
         formData.city.length > 1 &&
-        formData.streetAddress.length > 1
+        formData.streetAddress.length > 1 &&
+        emailPattern.test(formData.email)
     );
   }
 
