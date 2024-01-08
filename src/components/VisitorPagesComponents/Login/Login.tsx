@@ -51,10 +51,16 @@ function Login(props: {
     });
   }
 
+  // Regex for email validation
+  const emailPattern =
+    /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/;
+
   // Data validation made to match the back end specifications
   function decideLoginValidity() {
     setValidForSending(
-      loginData.email.length > 3 && loginData.password.length >= 12
+      loginData.email.length > 3 &&
+        loginData.password.length >= 12 &&
+        emailPattern.test(loginData.email)
     );
   }
 
