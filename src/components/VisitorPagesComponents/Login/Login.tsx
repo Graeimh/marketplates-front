@@ -130,7 +130,6 @@ function Login(props: {
       <article className={formStyles.formContainer}>
         <form onSubmit={sendLoginForm}>
           <h1>Sign in</h1>
-          <h1>{import.meta.env.VITE_REACT_APP_GOOGLE_SITE_KEY}</h1>
           <ul>
             <li>
               <label htmlFor="email">Email</label>
