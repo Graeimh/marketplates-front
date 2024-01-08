@@ -239,7 +239,6 @@ function TagManipulation(props: {
               <ul className={tagStyles.tagEditor}>
                 <li>
                   <label htmlFor="tagName">Tag name : </label>
-                  <br />
                   <input
                     type="text"
                     name="tagName"
@@ -263,7 +262,6 @@ function TagManipulation(props: {
                   <label htmlFor="tagBackgroundColor">
                     Background Color :{" "}
                   </label>
-                  <br />
                   <input
                     type="text"
                     name="tagBackgroundColor"

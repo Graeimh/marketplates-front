@@ -124,7 +124,6 @@ function EditProfile(props: {
             <ul>
               <li>
                 <label htmlFor="firstName">First name</label>
-                <br />
                 <input
                   type="text"
                   name="firstName"
@@ -136,7 +135,6 @@ function EditProfile(props: {
               </li>
               <li>
                 <label htmlFor="lastName">Last name</label>
-                <br />
                 <input
                   type="text"
                   name="lastName"
@@ -149,7 +147,6 @@ function EditProfile(props: {
             </ul>
             <div>
               <label htmlFor="streetAddress">Street address</label>
-              <br />
               <input
                 type="text"
                 name="streetAddress"
@@ -161,7 +158,6 @@ function EditProfile(props: {
             <ul>
               <li>
                 <label htmlFor="county">County</label>
-                <br />
                 <input
                   type="text"
                   name="county"
@@ -172,7 +168,6 @@ function EditProfile(props: {
               </li>
               <li>
                 <label htmlFor="city">City</label>
-                <br />
                 <input
                   type="text"
                   name="city"
@@ -183,7 +178,6 @@ function EditProfile(props: {
               </li>
               <li>
                 <label htmlFor="country">Country</label>
-                <br />
                 <input
                   type="text"
                   name="country"
@@ -200,7 +194,6 @@ function EditProfile(props: {
             <ul>
               <li>
                 <label htmlFor="displayName">Nickname</label>
-                <br />
                 <input
                   type="text"
                   name="displayName"
@@ -212,7 +205,6 @@ function EditProfile(props: {
               </li>
               <li>
                 <label htmlFor="email">Email</label>
-                <br />
                 <input
                   type="email"
                   name="email"

@@ -138,7 +138,6 @@ function Login(props: {
           <ul>
             <li>
               <label htmlFor="email">Email</label>
-              <br />
               <input
                 type="text"
                 name="email"
@@ -150,7 +149,6 @@ function Login(props: {
             </li>
             <li>
               <label htmlFor="password">Password</label>
-              <br />
               <input
                 type="password"
                 name="password"

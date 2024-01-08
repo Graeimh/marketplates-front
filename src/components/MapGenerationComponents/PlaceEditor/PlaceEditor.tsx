@@ -273,7 +273,6 @@ function PlaceEditor(props: {
               <h1>Register a place</h1>
               <li>
                 <label htmlFor="name">Name : </label>
-                <br />
                 <input
                   type="text"
                   name="name"
@@ -284,7 +283,6 @@ function PlaceEditor(props: {
               </li>
               <li>
                 <label htmlFor="description">Description : </label>
-                <br />
                 <input
                   type="text"
                   name="description"
@@ -349,7 +347,6 @@ function PlaceEditor(props: {
               </li>
               <li>
                 <label htmlFor="address">Address : </label>
-                <br />
                 <input
                   type="text"
                   name="address"
@@ -393,7 +390,6 @@ function PlaceEditor(props: {
               <li>Off the grid? Write the coordinates here!</li>
               <li>
                 <label htmlFor="latitude">Latitude : </label>
-                <br />
                 <input
                   type="number"
                   name="latitude"
@@ -410,7 +406,6 @@ function PlaceEditor(props: {
               </li>
               <li>
                 <label htmlFor="longitude">Longitude : </label>
-                <br />
                 <input
                   type="number"
                   name="longitude"

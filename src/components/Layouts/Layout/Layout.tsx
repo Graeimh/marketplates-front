@@ -205,15 +205,13 @@ const Layout = (props: {
                 <li>
                   <Link to="/login" aria-label="Navigate to Login">
                     <FontAwesomeIcon icon={solid("right-to-bracket")} />
-                    <br />
-                    Login
+                    <span className={iconStyles.iconTitle}>Login</span>
                   </Link>
                 </li>
                 <li>
                   <Link to="/contact" aria-label="Navigate to Contact">
                     <FontAwesomeIcon icon={solid("square-envelope")} />
-                    <br />
-                    Contact
+                    <span className={iconStyles.iconTitle}>Contact</span>
                   </Link>
                 </li>
               </ul>

@@ -807,7 +807,7 @@ function MapEditor(props: {
                       <li>
                         <span className={iconStyles.iconTitle}>
                           Select tags:
-                        </span>{" "}
+                        </span>
                         {placeFilterQuery.tags.map((tag) => (
                           <Tag
                             customStyle={{

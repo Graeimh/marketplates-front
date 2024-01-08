@@ -224,7 +224,6 @@ function Register(props: { messageSetter: React.Dispatch<IMessageValues> }) {
             <ul>
               <li>
                 <label htmlFor="displayName">Nickname</label>
-                <br />
                 <input
                   type="text"
                   name="displayName"
@@ -236,7 +235,6 @@ function Register(props: { messageSetter: React.Dispatch<IMessageValues> }) {
               </li>
               <li>
                 <label htmlFor="email">Email</label>
-                <br />
                 <input
                   type="email"
                   name="email"
@@ -249,7 +247,6 @@ function Register(props: { messageSetter: React.Dispatch<IMessageValues> }) {
               <li>
                 <div className={styles.toolTip}>
                   <label htmlFor="password">Password</label>
-                  <br />
                   <input
                     type={passwordVisibility}
                     name="password"

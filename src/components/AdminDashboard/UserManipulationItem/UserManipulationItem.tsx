@@ -213,7 +213,6 @@ function UserManipulationItem(props: {
             <ul>
               <li>
                 <label htmlFor="displayName">Nickname : </label>
-                <br />
                 <input
                   type="text"
                   name="displayName"
@@ -224,7 +223,6 @@ function UserManipulationItem(props: {
               </li>
               <li>
                 <label htmlFor="email">Email : </label>
-                <br />
                 <input
                   type="email"
                   name="email"
