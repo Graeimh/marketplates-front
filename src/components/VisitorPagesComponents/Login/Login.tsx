@@ -12,7 +12,6 @@ import * as jose from "jose";
 import UserContext from "../../Contexts/UserContext/UserContext.js";
 import { Helmet } from "react-helmet";
 import { IMessageValues } from "../../../common/types/commonTypes.ts/commonTypes.js";
-import dotenv from "dotenv";
 
 function Login(props: {
   contextSetter: React.Dispatch<ISessionValues>;
@@ -40,11 +39,9 @@ function Login(props: {
   const [validForSending, setValidForSending] = useState(false);
 
   // Fetching the site key for the captcha
-  dotenv.config();
-  const { VITE_REACT_APP_GOOGLE_SITE_KEY } = process.env;
 
-  const siteKey = VITE_REACT_APP_GOOGLE_SITE_KEY
-    ? VITE_REACT_APP_GOOGLE_SITE_KEY
+  const siteKey = process.env.VITE_REACT_APP_GOOGLE_SITE_KEY
+    ? process.env.VITE_REACT_APP_GOOGLE_SITE_KEY
     : "";
 
   // Each time an input is modified we check if the form is valid for sending
