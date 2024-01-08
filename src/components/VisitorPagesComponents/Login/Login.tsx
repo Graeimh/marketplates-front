@@ -125,6 +125,11 @@ function Login(props: {
       <Helmet>
         <title>Login</title>
         <link rel="canonical" href="http://localhost:5173/login" />
+        <script
+          src={`https://google.com/recaptcha/api.js?render=${
+            import.meta.env.VITE_REACT_APP_GOOGLE_SITE_KEY
+          }`}
+        ></script>
       </Helmet>
 
       <article className={formStyles.formContainer}>
