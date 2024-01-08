@@ -1,6 +1,7 @@
 import { Outlet, Link, useNavigate } from "react-router-dom";
 import stylesUserDashboard from "../../../common/styles/Dashboard.module.scss";
 import stylesAdminDashboard from "../LayoutDashboard/LayoutDashboard.module.scss";
+import iconStyles from "../../../common/styles/Icons.module.scss";
 import styles from "./Layout.module.scss";
 import { useContext, useState } from "react";
 import * as authenticationService from "../../../services/authenticationService.js";
@@ -110,30 +111,26 @@ const Layout = (props: {
                 <li>
                   <Link to="/mymaps" aria-label="Navigate to My Maps">
                     <FontAwesomeIcon icon={solid("map")} />
-                    <br />
-                    My Maps
+                    <span className={iconStyles.iconTitle}>My Maps</span>
                   </Link>
                 </li>
                 <li>
                   <Link to="/myplaces" aria-label="Navigate to My Places">
                     <FontAwesomeIcon icon={solid("shop")} />
-                    <br />
-                    My Places
+                    <span className={iconStyles.iconTitle}>My Places</span>
                   </Link>
                 </li>
 
                 <li>
                   <Link to="/profile" aria-label="Navigate to Profile">
                     <FontAwesomeIcon icon={regular("user")} />
-                    <br />
-                    Profile
+                    <span className={iconStyles.iconTitle}>Profile</span>
                   </Link>
                 </li>
                 <li>
                   <Link to="/contact" aria-label="Navigate to Contact">
                     <FontAwesomeIcon icon={solid("square-envelope")} />
-                    <br />
-                    Contact
+                    <span className={iconStyles.iconTitle}>Contact</span>
                   </Link>
                 </li>
 
@@ -141,8 +138,7 @@ const Layout = (props: {
                   <li className={stylesUserDashboard.navigationOption}>
                     <Link to="/dashboard" aria-label="Navigate to Dashboard">
                       <FontAwesomeIcon icon={solid("gauge")} />
-                      <br />
-                      Dashboard
+                      <span className={iconStyles.iconTitle}>Dashboard</span>
                     </Link>
                   </li>
                 )}
@@ -154,8 +150,7 @@ const Layout = (props: {
                       aria-label="Log out"
                     >
                       <FontAwesomeIcon icon={solid("right-from-bracket")} />
-                      <br />
-                      Log out
+                      <span className={iconStyles.iconTitle}>Log out</span>
                     </button>
                   </div>
                 </li>
@@ -204,8 +199,7 @@ const Layout = (props: {
                 <li>
                   <Link to="/register">
                     <FontAwesomeIcon icon={solid("user-plus")} />
-                    <br />
-                    Register
+                    <span className={iconStyles.iconTitle}>Register</span>
                   </Link>
                 </li>
                 <li>

@@ -1,4 +1,5 @@
 import { Link, Outlet } from "react-router-dom";
+import iconStyles from "../../../common/styles/Icons.module.scss";
 import styles from "./LayoutDashboard.module.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { solid } from "@fortawesome/fontawesome-svg-core/import.macro";
@@ -53,8 +54,8 @@ const LayoutDashboard = () => {
               </li>
               <li>
                 <Link to="/dashboard" aria-label="Navigate to Dashboard Index">
-                  <FontAwesomeIcon icon={solid("house")} /> <br />
-                  Index
+                  <FontAwesomeIcon icon={solid("house")} />{" "}
+                  <span className={iconStyles.iconTitle}>Index</span>
                 </Link>
               </li>
               <li>
@@ -63,15 +64,13 @@ const LayoutDashboard = () => {
                   aria-label="Navigate to Manage Users"
                 >
                   <FontAwesomeIcon icon={solid("users")} />
-                  <br />
-                  Users
+                  <span className={iconStyles.iconTitle}>Users</span>
                 </Link>
               </li>
               <li>
                 <Link to="/dashboard/tags" aria-label="Navigate to Manage Tags">
                   <FontAwesomeIcon icon={solid("tags")} />
-                  <br />
-                  Tags
+                  <span className={iconStyles.iconTitle}>Tags</span>
                 </Link>
               </li>
               <li>
@@ -80,8 +79,7 @@ const LayoutDashboard = () => {
                   aria-label="Navigate to Manage Places"
                 >
                   <FontAwesomeIcon icon={solid("shop")} />
-                  <br />
-                  Places
+                  <span className={iconStyles.iconTitle}>Places</span>
                 </Link>
               </li>
             </ul>

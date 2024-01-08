@@ -46,6 +46,11 @@ body {
   min-height: 100vh;
 }
 
+/* || Forms */
+label {
+  display: block;
+}
+
 /* || Links */
 a {
   font-weight: 500;

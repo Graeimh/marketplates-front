@@ -1,5 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import formStyles from "../../../common/styles/Forms.module.scss";
+import iconStyles from "../../../common/styles/Icons.module.scss";
 import styles from "./MapEditor.module.scss";
 import * as mapService from "../../../services/mapService.js";
 import * as placeIterationService from "../../../services/placeIterationService.js";
@@ -545,7 +546,6 @@ function MapEditor(props: {
                       <ul>
                         <li>
                           <label htmlFor="name">Name : </label>
-                          <br />
                           <input
                             type="text"
                             name="name"
@@ -557,7 +557,6 @@ function MapEditor(props: {
                         </li>
                         <li>
                           <label htmlFor="description">Description : </label>
-                          <br />
                           <input
                             type="text"
                             name="description"
@@ -589,7 +588,6 @@ function MapEditor(props: {
                               formData.privacyStatus === PrivacyStatus.Private
                             }
                           />
-                          <br />
                           <label htmlFor="privacyStatus1">Private</label>
                         </div>
                         <div>
@@ -608,7 +606,6 @@ function MapEditor(props: {
                               formData.privacyStatus === PrivacyStatus.Protected
                             }
                           />
-                          <br />
                           <label htmlFor="privacyStatus2">Friends</label>
                         </div>
                         <div>
@@ -627,7 +624,6 @@ function MapEditor(props: {
                               formData.privacyStatus === PrivacyStatus.Public
                             }
                           />
-                          <br />
                           <label htmlFor="privacyStatus3">Public</label>
                         </div>
                       </section>
@@ -674,7 +670,6 @@ function MapEditor(props: {
                   <h3>Find an address</h3>
                   <ul>
                     <label htmlFor="address">Get an address : </label>
-                    <br />
                     <input
                       type="text"
                       name="address"
@@ -759,7 +754,6 @@ function MapEditor(props: {
                       <label htmlFor="filterNameQuery">
                         Filter places by name:{" "}
                       </label>
-                      <br />
                       <input
                         type="text"
                         name="filterNameQuery"
@@ -772,7 +766,6 @@ function MapEditor(props: {
                       <label htmlFor="filterTagQuery">
                         Filter places by tags:{" "}
                       </label>
-                      <br />
                       <input
                         type="text"
                         name="filterTagQuery"
@@ -782,8 +775,7 @@ function MapEditor(props: {
                       />
                     </li>
                     <li>
-                      Select tags:
-                      <br />
+                      <span className={iconStyles.iconTitle}>Select tags:</span>
                       {tagListToDisplay.length > 0 &&
                         tagListToDisplay.map((tag) => (
                           <Tag
@@ -813,8 +805,9 @@ function MapEditor(props: {
                     </li>
                     {placeFilterQuery.tags.length > 0 && (
                       <li>
-                        Selected tags :
-                        <br />
+                        <span className={iconStyles.iconTitle}>
+                          Select tags:
+                        </span>{" "}
                         {placeFilterQuery.tags.map((tag) => (
                           <Tag
                             customStyle={{
@@ -912,7 +905,6 @@ function MapEditor(props: {
                     <ul>
                       <li>
                         <label htmlFor="iterationName">Name : </label>
-                        <br />
                         <input
                           type="text"
                           name="name"
@@ -928,7 +920,6 @@ function MapEditor(props: {
                         <label htmlFor="iterationDescription">
                           Description :{" "}
                         </label>
-                        <br />
                         <input
                           type="text"
                           name="description"
@@ -975,7 +966,6 @@ function MapEditor(props: {
                         <label htmlFor="filterTagQueryIteration">
                           Filter tags:
                         </label>
-                        <br />
                         <input
                           type="text"
                           name="filterTagQuery"

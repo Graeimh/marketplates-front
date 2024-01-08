@@ -1,4 +1,5 @@
 import { Helmet } from "react-helmet";
+import iconStyles from "../../../common/styles/Icons.module.scss";
 import styles from "./Contact.module.scss";
 
 function Contact() {
@@ -17,13 +18,14 @@ function Contact() {
             <p>
               If you find a bug of any kind, want to suggest a feature or report
               a bug please send a mail to the following email address.
-              <br />
-              <a
-                href="mailto:marketplatesowner@gmail.com"
-                aria-label="Send mail to marketplatesowner@gmail.com"
-              >
-                Send us some love!
-              </a>
+              <span className={iconStyles.iconTitle}>
+                <a
+                  href="mailto:marketplatesowner@gmail.com"
+                  aria-label="Send mail to marketplatesowner@gmail.com"
+                >
+                  Send us some love!
+                </a>
+              </span>
             </p>
           </section>
 
