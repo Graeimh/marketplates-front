@@ -12,6 +12,7 @@ import * as jose from "jose";
 import UserContext from "../../Contexts/UserContext/UserContext.js";
 import { Helmet } from "react-helmet";
 import { IMessageValues } from "../../../common/types/commonTypes.ts/commonTypes.js";
+import dotenv from "dotenv";
 
 function Login(props: {
   contextSetter: React.Dispatch<ISessionValues>;
@@ -37,6 +38,14 @@ function Login(props: {
 
   // Serves to check if all values have the correct number of characters
   const [validForSending, setValidForSending] = useState(false);
+
+  // Fetching the site key for the captcha
+  dotenv.config();
+  const { VITE_REACT_APP_GOOGLE_SITE_KEY } = process.env;
+
+  const siteKey = VITE_REACT_APP_GOOGLE_SITE_KEY
+    ? VITE_REACT_APP_GOOGLE_SITE_KEY
+    : "";
 
   // Each time an input is modified we check if the form is valid for sending
   useEffect(() => {
@@ -126,9 +135,7 @@ function Login(props: {
         <title>Login</title>
         <link rel="canonical" href="http://localhost:5173/login" />
         <script
-          src={`https://google.com/recaptcha/api.js?render=${
-            import.meta.env.VITE_REACT_APP_GOOGLE_SITE_KEY
-          }`}
+          src={`https://google.com/recaptcha/api.js?render=${siteKey}`}
         ></script>
       </Helmet>
 
@@ -162,7 +169,7 @@ function Login(props: {
             </li>
           </ul>
           <ReCAPTCHA
-            sitekey={import.meta.env.VITE_REACT_APP_GOOGLE_SITE_KEY}
+            sitekey={siteKey}
             ref={captcha}
             id={styles.captchaContainer}
             style={{
