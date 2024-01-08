@@ -51,11 +51,6 @@ function Login(props: {
     });
   }
 
-  console.log(
-    "import.meta.env.VITE_REACT_APP_GOOGLE_SITE_KEY",
-    import.meta.env.VITE_REACT_APP_GOOGLE_SITE_KEY
-  );
-
   // Data validation made to match the back end specifications
   function decideLoginValidity() {
     setValidForSending(
