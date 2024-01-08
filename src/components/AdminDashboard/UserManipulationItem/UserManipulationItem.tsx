@@ -44,6 +44,10 @@ function UserManipulationItem(props: {
   // Fetching the user's current data
   const userContextValue = useContext(UserContext);
 
+  // Regex for email validation
+  const emailPattern =
+    /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/;
+
   // Each time an input is modified we check if the form is valid for sending
   useEffect(() => {
     decideUpdatability();
@@ -66,7 +70,8 @@ function UserManipulationItem(props: {
           formData.streetAddress !== props.user.location.streetAddress ||
           formData.county !== props.user.location.county ||
           formData.city !== props.user.location.city ||
-          formData.country !== props.user.location.country)
+          formData.country !== props.user.location.country) &&
+        emailPattern.test(formData.email)
     );
   }
 

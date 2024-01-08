@@ -46,7 +46,7 @@ function EditProfile(props: {
 
   // Each time an input is modified we check if the form is valid for sending
   useEffect(() => {
-    decideRegistration();
+    decideUpdateValidity();
   }, [formData]);
 
   function updateField(event) {
@@ -80,7 +80,7 @@ function EditProfile(props: {
   }
 
   // Data validation made to match the back end specifications
-  function decideRegistration() {
+  function decideUpdateValidity() {
     setValidForSending(
       formData.firstName.length > 1 &&
         formData.lastName.length > 1 &&
