@@ -38,12 +38,6 @@ function Login(props: {
   // Serves to check if all values have the correct number of characters
   const [validForSending, setValidForSending] = useState(false);
 
-  // Fetching the site key for the captcha
-
-  const siteKey = process.env.VITE_REACT_APP_GOOGLE_SITE_KEY
-    ? process.env.VITE_REACT_APP_GOOGLE_SITE_KEY
-    : "";
-
   // Each time an input is modified we check if the form is valid for sending
   useEffect(() => {
     decideLoginValidity();
@@ -132,7 +126,9 @@ function Login(props: {
         <title>Login</title>
         <link rel="canonical" href="http://localhost:5173/login" />
         <script
-          src={`https://google.com/recaptcha/api.js?render=${siteKey}`}
+          src={`https://google.com/recaptcha/api.js?render=${
+            import.meta.env.VITE_REACT_APP_GOOGLE_SITE_KEY
+          }`}
         ></script>
       </Helmet>
 
@@ -166,7 +162,7 @@ function Login(props: {
             </li>
           </ul>
           <ReCAPTCHA
-            sitekey={siteKey}
+            sitekey={import.meta.env.VITE_REACT_APP_GOOGLE_SITE_KEY}
             ref={captcha}
             id={styles.captchaContainer}
             style={{
