@@ -7,7 +7,7 @@ function Contact() {
     <>
       <Helmet>
         <title>Contact</title>
-        <link rel="canonical" href="http://localhost:5173/contact" />
+        <link rel="canonical" href="https://marketplates.netlify.app/contact" />
       </Helmet>
       <section id={styles.contactContainer}>
         <h1>Contact</h1>

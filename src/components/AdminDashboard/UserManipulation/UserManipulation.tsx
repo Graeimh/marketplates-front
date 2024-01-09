@@ -133,7 +133,10 @@ function UserManipulation(props: {
     <>
       <Helmet>
         <title>Dashboard - Users</title>
-        <link rel="canonical" href="http://localhost:5173/dashboard/users" />
+        <link
+          rel="canonical"
+          href="https://marketplates.netlify.app/dashboard/users"
+        />
       </Helmet>
 
       <section id={styles.manipulationContainer}>

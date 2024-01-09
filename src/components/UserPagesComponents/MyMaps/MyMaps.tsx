@@ -68,7 +68,7 @@ function MyPlaces(props: { messageSetter: React.Dispatch<IMessageValues> }) {
     <>
       <Helmet>
         <title>My maps</title>
-        <link rel="canonical" href="http://localhost:5173/mymaps" />
+        <link rel="canonical" href="https://marketplates.netlify.app/mymaps" />
       </Helmet>
       <section id={stylesItem.itemContainer}>
         <h1>Manage your maps</h1>

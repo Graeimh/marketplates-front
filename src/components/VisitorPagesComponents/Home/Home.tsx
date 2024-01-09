@@ -14,7 +14,7 @@ function Home() {
     <>
       <Helmet>
         <title>Marketplates</title>
-        <link rel="canonical" href="http://localhost:5173" />
+        <link rel="canonical" href="https://marketplates.netlify.app/" />
       </Helmet>
       <section id={styles.homeContainer}>
         <h1>What's new in the pot?</h1>

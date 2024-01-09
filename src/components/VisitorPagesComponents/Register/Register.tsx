@@ -145,7 +145,10 @@ function Register(props: { messageSetter: React.Dispatch<IMessageValues> }) {
     <>
       <Helmet>
         <title>Register</title>
-        <link rel="canonical" href="http://localhost:5173/register" />
+        <link
+          rel="canonical"
+          href="https://marketplates.netlify.app/register"
+        />
       </Helmet>
 
       <section className={formStyles.formContainer}>

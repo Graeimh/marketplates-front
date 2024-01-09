@@ -130,7 +130,7 @@ function Login(props: {
     <>
       <Helmet>
         <title>Login</title>
-        <link rel="canonical" href="http://localhost:5173/login" />
+        <link rel="canonical" href="https://marketplates.netlify.app/login" />
         <script
           src={`https://google.com/recaptcha/api.js?render=${
             import.meta.env.VITE_REACT_APP_GOOGLE_SITE_KEY

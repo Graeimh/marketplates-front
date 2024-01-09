@@ -102,7 +102,7 @@ function App() {
     <>
       <Helmet>
         <title>Marketplates</title>
-        <link rel="canonical" href="http://localhost:5173/" />
+        <link rel="canonical" href="https://marketplates.netlify.app/" />
       </Helmet>
       {messageValue.message !== undefined &&
         messageValue.message.length > 0 && (

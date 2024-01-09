@@ -424,12 +424,18 @@ function MapEditor(props: {
       {props.editedMap ? (
         <Helmet>
           <title>Edit map : {formData.name}</title>
-          <link rel="canonical" href="http://localhost:5173/createmap" />
+          <link
+            rel="canonical"
+            href="https://marketplates.netlify.app/createmap"
+          />
         </Helmet>
       ) : (
         <Helmet>
           <title>Create map : {formData.name}</title>
-          <link rel="canonical" href="http://localhost:5173/createmap" />
+          <link
+            rel="canonical"
+            href="https://marketplates.netlify.app/createmap"
+          />
         </Helmet>
       )}
       <h1 id={styles.mapEditiorTitle}>

@@ -118,7 +118,10 @@ function EditProfile(props: {
     <>
       <Helmet>
         <title>Edit profile</title>
-        <link rel="canonical" href="http://localhost:5173/editprofile" />
+        <link
+          rel="canonical"
+          href="https://marketplates.netlify.app/editprofile"
+        />
       </Helmet>
 
       <h2>Edit profile</h2>

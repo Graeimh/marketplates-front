@@ -47,7 +47,7 @@ function Profile(props: {
     <>
       <Helmet>
         <title>Profile</title>
-        <link rel="canonical" href="http://localhost:5173/profile" />
+        <link rel="canonical" href="https://marketplates.netlify.app/profile" />
       </Helmet>
       <div id={stylesUserDashboard.dashboardContentContainer}>
         <ul id={stylesUserDashboard.dashboardPanel}>

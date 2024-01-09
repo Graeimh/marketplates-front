@@ -233,7 +233,10 @@ function TagManipulation(props: {
     <>
       <Helmet>
         <title>Dashboard - Tags</title>
-        <link rel="canonical" href="http://localhost:5173/dashboard/tags" />
+        <link
+          rel="canonical"
+          href="https://marketplates.netlify.app/dashboard/tags"
+        />
       </Helmet>
 
       <section id={manipulationStyles.manipulationContainer}>

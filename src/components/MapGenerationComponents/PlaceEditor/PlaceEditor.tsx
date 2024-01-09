@@ -255,14 +255,20 @@ function PlaceEditor(props: {
       {props.editPlaceId ? (
         <Helmet>
           <title>Edit place : {formData.name}</title>
-          <link rel="canonical" href="http://localhost:5173/createplace" />
+          <link
+            rel="canonical"
+            href="https://marketplates.netlify.app/createplace"
+          />
         </Helmet>
       ) : (
         <Helmet>
           <title>
             Create place{formData.name.length > 0 ? `: ${formData.name}` : ""}
           </title>
-          <link rel="canonical" href="http://localhost:5173/createplace" />
+          <link
+            rel="canonical"
+            href="https://marketplates.netlify.app/createplace"
+          />
         </Helmet>
       )}
 

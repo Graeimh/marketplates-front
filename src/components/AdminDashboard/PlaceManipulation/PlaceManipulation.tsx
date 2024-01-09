@@ -140,7 +140,10 @@ function PlaceManipulation(props: {
     <>
       <Helmet>
         <title>Dashboard - Places</title>
-        <link rel="canonical" href="http://localhost:5173/dashboard/places" />
+        <link
+          rel="canonical"
+          href="https://marketplates.netlify.app/dashboard/places"
+        />
       </Helmet>
 
       <section id={styles.manipulationContainer}>
