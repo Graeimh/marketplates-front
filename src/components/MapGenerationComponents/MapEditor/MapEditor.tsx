@@ -38,6 +38,7 @@ import { Helmet } from "react-helmet";
 import { solid } from "@fortawesome/fontawesome-svg-core/import.macro";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { icon } from "leaflet";
+import marker from "../../../assets/marker.png";
 
 function MapEditor(props: {
   editedMap: string | undefined;
@@ -120,7 +121,7 @@ function MapEditor(props: {
   const navigate = useNavigate();
 
   // Allows to fetch the value of a marker's image
-  const mapMarkerIcon = icon({ iconUrl: "../../../assets/marker.png" });
+  const mapMarkerIcon = icon({ iconUrl: marker });
 
   // Allows to interact with a map address search api
   const provider = new OpenStreetMapProvider();

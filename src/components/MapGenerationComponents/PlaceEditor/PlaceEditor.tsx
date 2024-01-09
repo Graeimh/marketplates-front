@@ -25,6 +25,7 @@ import { checkPermission } from "../../../common/functions/checkPermission.js";
 import { UserType } from "../../../common/types/userTypes/userTypes.js";
 import { Helmet } from "react-helmet";
 import { icon } from "leaflet";
+import marker from "../../../assets/marker.png";
 
 function PlaceEditor(props: {
   editPlaceId: string | undefined;
@@ -102,7 +103,7 @@ function PlaceEditor(props: {
       : tagSelection;
 
   // Allows to fetch the value of a marker's image
-  const mapMarkerIcon = icon({ iconUrl: "../../../assets/marker.png" });
+  const mapMarkerIcon = icon({ iconUrl: marker });
 
   useEffect(() => {
     getUserTags();
