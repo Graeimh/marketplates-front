@@ -24,6 +24,7 @@ import UserContext from "../../Contexts/UserContext/UserContext.js";
 import { checkPermission } from "../../../common/functions/checkPermission.js";
 import { UserType } from "../../../common/types/userTypes/userTypes.js";
 import { Helmet } from "react-helmet";
+import { icon } from "leaflet";
 
 function PlaceEditor(props: {
   editPlaceId: string | undefined;
@@ -99,6 +100,9 @@ function PlaceEditor(props: {
     formData.tagList.length > 0
       ? tagListWithoutSelectedAndFiltered.slice(0, 10)
       : tagSelection;
+
+  // Allows to fetch the value of a marker's image
+  const mapMarkerIcon = icon({ iconUrl: "../../../assets/marker.png" });
 
   useEffect(() => {
     getUserTags();
@@ -327,6 +331,7 @@ function PlaceEditor(props: {
                   {formData.gpsCoordinates.latitude !== null &&
                     formData.gpsCoordinates.longitude !== null && (
                       <Marker
+                        icon={mapMarkerIcon}
                         position={[
                           formData.gpsCoordinates.latitude,
                           formData.gpsCoordinates.longitude,
@@ -536,6 +541,7 @@ function PlaceEditor(props: {
             {formData.gpsCoordinates.latitude !== null &&
               formData.gpsCoordinates.longitude !== null && (
                 <Marker
+                  icon={mapMarkerIcon}
                   position={[
                     formData.gpsCoordinates.latitude,
                     formData.gpsCoordinates.longitude,
