@@ -37,6 +37,7 @@ import UserContext from "../../Contexts/UserContext/UserContext.js";
 import { Helmet } from "react-helmet";
 import { solid } from "@fortawesome/fontawesome-svg-core/import.macro";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { icon } from "leaflet";
 
 function MapEditor(props: {
   editedMap: string | undefined;
@@ -117,6 +118,9 @@ function MapEditor(props: {
   // Fetching the user's current data
   const userContextValue = useContext(UserContext);
   const navigate = useNavigate();
+
+  // Allows to fetch the value of a marker's image
+  const mapMarkerIcon = icon({ iconUrl: "../../../assets/marker.png" });
 
   // Allows to interact with a map address search api
   const provider = new OpenStreetMapProvider();
@@ -463,6 +467,7 @@ function MapEditor(props: {
             {mapMarkersAfterFilter.length > 0 &&
               mapMarkersAfterFilter.map((place) => (
                 <Marker
+                  icon={mapMarkerIcon}
                   position={[
                     place.gpsCoordinates.latitude
                       ? place.gpsCoordinates.latitude
