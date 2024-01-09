@@ -394,7 +394,10 @@ function MapEditor(props: {
   async function sendRegistrationForm(event) {
     event.preventDefault();
     try {
-      if (checkPermission(userContextValue.status, UserType.User)) {
+      if (
+        checkPermission(userContextValue.status, UserType.User) &&
+        isValidForSending
+      ) {
         if (!props.editedMap) {
           await mapService.generateMap(formData);
         } else {

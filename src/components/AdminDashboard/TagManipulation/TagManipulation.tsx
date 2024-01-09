@@ -56,6 +56,9 @@ function TagManipulation(props: {
   );
   const displayedTagList = tagQuery.length > 0 ? filteredTagList : tagList;
 
+  // Regex for hex color validation
+  const hexColorPattern = /^#[A-Fa-f0-9]{6}$/;
+
   // When the user's access token is reset, pull the values anew if possible
   useEffect(() => {
     getAllTags();
@@ -109,8 +112,8 @@ function TagManipulation(props: {
   function decideUpdatability() {
     setValidForUpdating(
       formData.tagName.length > 3 &&
-        formData.tagNameColor.length === 7 &&
-        formData.tagBackgroundColor.length === 7
+        hexColorPattern.test(formData.tagNameColor) &&
+        hexColorPattern.test(formData.tagBackgroundColor)
     );
   }
 
@@ -153,7 +156,10 @@ function TagManipulation(props: {
   // Sending data to the back end
   async function sendForm(event) {
     event.preventDefault();
-    if (checkPermission(userContextValue.status, UserType.Admin)) {
+    if (
+      checkPermission(userContextValue.status, UserType.Admin) &&
+      validForUpdating
+    ) {
       if (formData.tagName.length > 2) {
         try {
           await tagService.generateTag(formData, userContextValue.userId);

@@ -92,7 +92,10 @@ function UserManipulationItem(props: {
     event.preventDefault();
 
     try {
-      if (checkPermission(userContextValue.status, UserType.Admin)) {
+      if (
+        checkPermission(userContextValue.status, UserType.Admin) &&
+        validForUpdating
+      ) {
         await userService.updateUserById(props.user._id, formData);
         props.messageSetter({
           message: "User updated successfully",

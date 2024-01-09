@@ -71,7 +71,7 @@ function Login(props: {
     if (userContextValue.userId.length > 0) {
       navigate("/");
     }
-    if (canRetry) {
+    if (canRetry && validForSending) {
       if (
         captcha.current !== null &&
         captcha.current.getValue().toString().length > 0

@@ -50,6 +50,9 @@ function TagManipulationItem(props: {
     backgroundColor: formData.tagBackgroundColor,
   };
 
+  // Regex for hex color validation
+  const hexColorPattern = /^#[A-Fa-f0-9]{6}$/;
+
   // Each time an input is modified we check if the form is valid for sending
   useEffect(() => {
     decideUpdatability();
@@ -59,11 +62,11 @@ function TagManipulationItem(props: {
   function decideUpdatability() {
     setValidForUpdating(
       formData.tagName.length > 3 &&
-        formData.tagNameColor.length === 7 &&
-        formData.tagBackgroundColor.length === 7 &&
         (formData.tagName !== props.tag.name ||
           formData.tagNameColor !== props.tag.nameColor ||
-          formData.tagBackgroundColor !== props.tag.backgroundColor)
+          formData.tagBackgroundColor !== props.tag.backgroundColor) &&
+        hexColorPattern.test(formData.tagBackgroundColor) &&
+        hexColorPattern.test(formData.tagName)
     );
   }
 
@@ -106,18 +109,18 @@ function TagManipulationItem(props: {
   // Sending data to the back end
   async function sendUpdateForm(event) {
     event.preventDefault();
-    if (validForUpdating) {
+    if (
+      checkPermission(userContextValue.status, UserType.Admin) &&
+      validForUpdating
+    ) {
       try {
-        if (checkPermission(userContextValue.status, UserType.Admin)) {
-          await tagService.updateTagById(props.tag._id, formData);
-
-          setValidForUpdating(false);
-          props.messageSetter({
-            message: "Tag updated successfully.",
-            successStatus: true,
-          });
-          props.refetch();
-        }
+        await tagService.updateTagById(props.tag._id, formData);
+        setValidForUpdating(false);
+        props.messageSetter({
+          message: "Tag updated successfully.",
+          successStatus: true,
+        });
+        props.refetch();
       } catch (err) {
         props.messageSetter({
           message: "We could not update the tag.",
@@ -126,7 +129,7 @@ function TagManipulationItem(props: {
       }
     } else {
       props.messageSetter({
-        message: "The tag's name cannot be under 3 characters!",
+        message: "The tag data is not valid or you do not have permission.",
         successStatus: false,
       });
     }

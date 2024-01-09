@@ -203,7 +203,10 @@ function PlaceEditor(props: {
   async function sendRegistrationForm(event) {
     event.preventDefault();
     try {
-      if (checkPermission(userContextValue.status, UserType.User)) {
+      if (
+        checkPermission(userContextValue.status, UserType.User) &&
+        isValidForSending
+      ) {
         if (props.editPlaceId === undefined) {
           await placeService.generatePlace(formData);
           props.messageSetter({

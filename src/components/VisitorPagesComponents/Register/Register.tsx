@@ -118,7 +118,7 @@ function Register(props: { messageSetter: React.Dispatch<IMessageValues> }) {
   // Sending data to the back end
   async function sendRegistrationForm(event) {
     event.preventDefault();
-    if (doesPasswordFitCriteria && arePasswordsMatching) {
+    if (validForSending && doesPasswordFitCriteria && arePasswordsMatching) {
       try {
         await userService.generateUser(formData);
 
