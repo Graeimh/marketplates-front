@@ -66,7 +66,7 @@ function TagManipulationItem(props: {
           formData.tagNameColor !== props.tag.nameColor ||
           formData.tagBackgroundColor !== props.tag.backgroundColor) &&
         hexColorPattern.test(formData.tagBackgroundColor) &&
-        hexColorPattern.test(formData.tagName)
+        hexColorPattern.test(formData.tagNameColor)
     );
   }
 
