@@ -103,7 +103,7 @@ function PlaceEditor(props: {
       : tagSelection;
 
   // Allows to fetch the value of a marker's image
-  const mapMarkerIcon = icon({ iconUrl: marker });
+  const mapMarkerIcon = icon({ iconUrl: marker, iconSize: [32, 32] });
 
   useEffect(() => {
     getUserTags();

@@ -121,7 +121,7 @@ function MapEditor(props: {
   const navigate = useNavigate();
 
   // Allows to fetch the value of a marker's image
-  const mapMarkerIcon = icon({ iconUrl: marker });
+  const mapMarkerIcon = icon({ iconUrl: marker, iconSize: [32, 32] });
 
   // Allows to interact with a map address search api
   const provider = new OpenStreetMapProvider();
