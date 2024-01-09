@@ -90,6 +90,11 @@ ul {
   padding: 0 0 0 0.5rem;
 }
 
+/* || For geolocation inputs*/
+input[type="number"] {
+  text-align: center;
+}
+
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
