@@ -138,7 +138,7 @@ function Login(props: {
         ></script>
       </Helmet>
 
-      <article className={formStyles.formContainer}>
+      <section className={formStyles.formContainer}>
         <form onSubmit={sendLoginForm}>
           <h1>Sign in</h1>
           <ul>
@@ -187,7 +187,7 @@ function Login(props: {
             </button>
           </div>
         </form>
-      </article>
+      </section>
     </>
   );
 }

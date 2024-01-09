@@ -69,9 +69,9 @@ function MyPlaces(props: { messageSetter: React.Dispatch<IMessageValues> }) {
         <title>My places</title>
         <link rel="canonical" href="http://localhost:5173/myplaces" />
       </Helmet>
-      <article id={styles.itemContainer}>
+      <section id={styles.itemContainer}>
         <h1>Manage your places</h1>
-        <section className={formStyles.finalButtonContainer}>
+        <article className={formStyles.finalButtonContainer}>
           {userPlacesList.length > 0 ? (
             <button
               onClick={() => {
@@ -92,13 +92,13 @@ function MyPlaces(props: { messageSetter: React.Dispatch<IMessageValues> }) {
               </button>
             </>
           )}
-        </section>
+        </article>
 
         <div id={styles.itemListContainer}>
           {userPlacesList &&
             userPlacesList.map((place) => (
-              <article className={styles.userItemContainer} key={place.name}>
-                <section className={styles.itemDataContainer}>
+              <section className={styles.userItemContainer} key={place.name}>
+                <article className={styles.itemDataContainer}>
                   <h2>{place.name}</h2>
                   <ul>
                     <li className={styles.itemDataField}>Description</li>
@@ -106,8 +106,8 @@ function MyPlaces(props: { messageSetter: React.Dispatch<IMessageValues> }) {
                     <li className={styles.itemDataField}>Address</li>
                     <li>{place.address}</li>
                   </ul>
-                </section>
-                <section className={styles.itemButtonContainer}>
+                </article>
+                <article className={styles.itemButtonContainer}>
                   <button
                     type="button"
                     onClick={() => navigate(`/editplace/${place._id}`)}
@@ -131,11 +131,11 @@ function MyPlaces(props: { messageSetter: React.Dispatch<IMessageValues> }) {
                       Delete place
                     </button>
                   </span>
-                </section>
-              </article>
+                </article>
+              </section>
             ))}
         </div>
-      </article>
+      </section>
     </>
   );
 }

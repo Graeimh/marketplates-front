@@ -66,7 +66,7 @@ function PlaceManipulationItem(props: {
 
   return (
     <>
-      <article
+      <section
         className={`
           ${
             props.IsSelected
@@ -76,7 +76,7 @@ function PlaceManipulationItem(props: {
           ${styles.placeDashboardContainer}
             `}
       >
-        <section>
+        <article>
           <h2 className={formStyles.itemTitle}>{props.place.name}</h2>
           <button
             type="button"
@@ -97,8 +97,8 @@ function PlaceManipulationItem(props: {
               Delete place
             </button>
           </span>
-        </section>
-        <section>
+        </article>
+        <article>
           <h5>Address :</h5>
           {props.place.address}
           <h5>Description :</h5>
@@ -125,7 +125,7 @@ function PlaceManipulationItem(props: {
               </li>
             )}
           </ul>
-        </section>
+        </article>
         <div className={formStyles.finalButtonContainer}>
           <button
             type="button"
@@ -134,7 +134,7 @@ function PlaceManipulationItem(props: {
             Edit place
           </button>
         </div>
-      </article>
+      </section>
     </>
   );
 }

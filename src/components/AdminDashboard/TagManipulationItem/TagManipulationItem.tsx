@@ -137,7 +137,7 @@ function TagManipulationItem(props: {
 
   return (
     <>
-      <article
+      <section
         className={`
           ${
             props.IsSelected
@@ -146,7 +146,7 @@ function TagManipulationItem(props: {
           } ${formStyles.formContainer}
             `}
       >
-        <section>
+        <article>
           <h2 className={formStyles.itemTitle}>
             Tag :
             <Tag customStyle={style} tagName={props.tag.name} isTiny={false} />
@@ -169,9 +169,9 @@ function TagManipulationItem(props: {
               <FontAwesomeIcon icon={solid("xmark")} /> Delete tag
             </button>
           </span>
-        </section>
+        </article>
         <form onSubmit={sendUpdateForm}>
-          <section>
+          <article>
             <ul className={styles.tagEditor}>
               <li>
                 <label htmlFor="tagName">Tag name : </label>
@@ -226,8 +226,8 @@ function TagManipulationItem(props: {
                 </li>
               </ul>
             </div>
-          </section>
-          <section>
+          </article>
+          <article>
             <ul>
               <li className={styles.centeredTagEditorElement}>
                 Before changes :
@@ -252,14 +252,14 @@ function TagManipulationItem(props: {
                 </>
               )}
             </ul>
-          </section>
+          </article>
           <div className={formStyles.finalButtonContainer}>
             <button type="submit" disabled={!validForUpdating}>
               Update tag
             </button>
           </div>
         </form>
-      </article>
+      </section>
     </>
   );
 }

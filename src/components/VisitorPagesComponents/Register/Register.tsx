@@ -148,10 +148,10 @@ function Register(props: { messageSetter: React.Dispatch<IMessageValues> }) {
         <link rel="canonical" href="http://localhost:5173/register" />
       </Helmet>
 
-      <article className={formStyles.formContainer}>
+      <section className={formStyles.formContainer}>
         <form onSubmit={sendRegistrationForm}>
           <h1>Register</h1>
-          <section className={formStyles.specificData}>
+          <article className={formStyles.specificData}>
             <h2>Personnal information</h2>
             <ul>
               <li>
@@ -223,8 +223,8 @@ function Register(props: { messageSetter: React.Dispatch<IMessageValues> }) {
                 />
               </li>
             </ul>
-          </section>
-          <section>
+          </article>
+          <article>
             <h2>Credentials</h2>
             <ul>
               <li>
@@ -373,7 +373,7 @@ function Register(props: { messageSetter: React.Dispatch<IMessageValues> }) {
                 />
               </li>
             </ul>
-          </section>
+          </article>
           <div className={formStyles.finalButtonContainer}>
             <button
               type="submit"
@@ -389,7 +389,7 @@ function Register(props: { messageSetter: React.Dispatch<IMessageValues> }) {
             </button>
           </div>
         </form>
-      </article>
+      </section>
     </>
   );
 }

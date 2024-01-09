@@ -70,9 +70,9 @@ function MyPlaces(props: { messageSetter: React.Dispatch<IMessageValues> }) {
         <title>My maps</title>
         <link rel="canonical" href="http://localhost:5173/mymaps" />
       </Helmet>
-      <article id={stylesItem.itemContainer}>
+      <section id={stylesItem.itemContainer}>
         <h1>Manage your maps</h1>
-        <section className={formStyles.finalButtonContainer}>
+        <article className={formStyles.finalButtonContainer}>
           {userMapsList.length > 0 ? (
             <button
               onClick={() => {
@@ -93,17 +93,17 @@ function MyPlaces(props: { messageSetter: React.Dispatch<IMessageValues> }) {
               </button>
             </>
           )}
-        </section>
+        </article>
 
         <div id={stylesItem.itemListContainer}>
           {userMapsList &&
             userMapsList.map((map) => (
-              <article className={stylesItem.userItemContainer} key={map.name}>
-                <section className={stylesItem.itemDataContainer}>
+              <section className={stylesItem.userItemContainer} key={map.name}>
+                <article className={stylesItem.itemDataContainer}>
                   <h2>{map.name}</h2>
                   <p className={styles.mapDescription}>{map.description}</p>
-                </section>
-                <section className={stylesItem.itemButtonContainer}>
+                </article>
+                <article className={stylesItem.itemButtonContainer}>
                   <button
                     type="button"
                     onClick={() => navigate(`/editmap/${map._id}`)}
@@ -127,11 +127,11 @@ function MyPlaces(props: { messageSetter: React.Dispatch<IMessageValues> }) {
                       Delete map
                     </button>
                   </span>
-                </section>
-              </article>
+                </article>
+              </section>
             ))}
         </div>
-      </article>
+      </section>
     </>
   );
 }

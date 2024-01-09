@@ -136,9 +136,9 @@ function UserManipulation(props: {
         <link rel="canonical" href="http://localhost:5173/dashboard/users" />
       </Helmet>
 
-      <article id={styles.manipulationContainer}>
+      <section id={styles.manipulationContainer}>
         <h1>Manage users</h1>
-        <section id={styles.searchBar}>
+        <article id={styles.searchBar}>
           <label htmlFor="userQuery">
             <FontAwesomeIcon icon={solid("magnifying-glass")} />
             Search for a user via their display name :{" "}
@@ -150,8 +150,8 @@ function UserManipulation(props: {
               setUserQuery(e.target.value);
             }}
           />
-        </section>
-        <section id={styles.manipulationButtonsContainer}>
+        </article>
+        <article id={styles.manipulationButtonsContainer}>
           <span className={stylesUserDashboard.deleteButton}>
             <button type="button" onClick={() => deletePrimedForDeletion()}>
               <FontAwesomeIcon icon={regular("trash-can")} />
@@ -171,8 +171,8 @@ function UserManipulation(props: {
             <FontAwesomeIcon icon={solid("reply-all")} />
             Select all ({userList.length}) users
           </button>
-        </section>
-      </article>
+        </article>
+      </section>
 
       <ul id={styles.manipulationItemContainer}>
         {displayedUserList.length > 0 &&

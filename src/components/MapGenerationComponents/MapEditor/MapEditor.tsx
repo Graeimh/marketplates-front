@@ -437,8 +437,8 @@ function MapEditor(props: {
           ? `Editing ${formData.name}`
           : `Creating ${formData.name}`}
       </h1>
-      <article id={styles.mapEditorContainer}>
-        <section id={styles.mapContainer} aria-label="Map">
+      <section id={styles.mapEditorContainer}>
+        <article id={styles.mapContainer} aria-label="Map">
           <MapContainer
             style={{ height: "100%", width: "100%" }}
             center={{ lat: 50.633333, lng: 3.066667 }}
@@ -506,10 +506,10 @@ function MapEditor(props: {
                 </Marker>
               ))}
           </MapContainer>
-        </section>
+        </article>
 
-        <section id={styles.mapSidebar}>
-          <section className={styles.mapForms}>
+        <article id={styles.mapSidebar}>
+          <article className={styles.mapForms}>
             <form className={formStyles.formContainer}>
               <button
                 aria-label={`${
@@ -535,8 +535,8 @@ function MapEditor(props: {
                 </span>
               </button>
 
-              <section id={styles.mapDataContainer}>
-                <section
+              <article id={styles.mapDataContainer}>
+                <article
                   className={
                     mapDataCollapseVisible
                       ? styles.mapDataVisible
@@ -571,7 +571,7 @@ function MapEditor(props: {
                       </ul>
 
                       <h3>Privacy</h3>
-                      <section id={styles.privacyRadioContainer}>
+                      <article id={styles.privacyRadioContainer}>
                         <div>
                           <label htmlFor="privacyStatus">
                             Choose your privacy setting:
@@ -629,10 +629,10 @@ function MapEditor(props: {
                           />
                           <label htmlFor="privacyStatus3">Public</label>
                         </div>
-                      </section>
+                      </article>
                     </>
                   )}
-                </section>
+                </article>
 
                 <button
                   aria-label={`${
@@ -657,7 +657,7 @@ function MapEditor(props: {
                     )}
                   </span>
                 </button>
-                <section
+                <article
                   className={
                     addressCollapseVisible
                       ? styles.addressVisible
@@ -712,7 +712,7 @@ function MapEditor(props: {
                       ))}
                     </ul>
                   )}
-                </section>
+                </article>
                 <button
                   aria-label={`${
                     iterationCollapseVisible ? "Close" : "Open"
@@ -736,7 +736,7 @@ function MapEditor(props: {
                     )}
                   </span>
                 </button>
-                <section
+                <article
                   className={
                     filtersCollapseVisible
                       ? styles.addressVisible
@@ -851,11 +851,11 @@ function MapEditor(props: {
                       </button>
                     </li>
                   </ul>
-                </section>
-              </section>
+                </article>
+              </article>
             </form>
-          </section>
-          <section className={styles.mapForms}>
+          </article>
+          <article className={styles.mapForms}>
             {iterationValues.address.length > 0 && (
               <>
                 <button
@@ -881,7 +881,7 @@ function MapEditor(props: {
                     )}
                   </span>
                 </button>
-                <section
+                <article
                   className={
                     iterationCollapseVisible
                       ? styles.addressVisible
@@ -1024,11 +1024,11 @@ function MapEditor(props: {
                         : "Create version"}
                     </button>
                   </form>
-                </section>
+                </article>
               </>
             )}
-          </section>
-          <section
+          </article>
+          <article
             id={styles.finalMapButtonContainer}
             className={formStyles.finalButtonContainer}
           >
@@ -1041,9 +1041,9 @@ function MapEditor(props: {
             >
               {props.editedMap ? "Edit map" : "Create map"}
             </button>
-          </section>
-        </section>
-      </article>
+          </article>
+        </article>
+      </section>
     </>
   );
 }

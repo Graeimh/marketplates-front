@@ -143,9 +143,9 @@ function PlaceManipulation(props: {
         <link rel="canonical" href="http://localhost:5173/dashboard/places" />
       </Helmet>
 
-      <article id={styles.manipulationContainer}>
+      <section id={styles.manipulationContainer}>
         <h1>Manage places</h1>
-        <section id={styles.searchBar}>
+        <article id={styles.searchBar}>
           <label htmlFor="placeQuery">
             <FontAwesomeIcon icon={solid("magnifying-glass")} />
             Search for a place :{" "}
@@ -158,8 +158,8 @@ function PlaceManipulation(props: {
               setPlaceQuery(e.target.value);
             }}
           />
-        </section>
-        <section id={styles.manipulationButtonsContainer}>
+        </article>
+        <article id={styles.manipulationButtonsContainer}>
           <span className={stylesUserDashboard.deleteButton}>
             <button type="button" onClick={() => deletePrimedForDeletion()}>
               <FontAwesomeIcon icon={regular("trash-can")} />
@@ -178,8 +178,8 @@ function PlaceManipulation(props: {
             <FontAwesomeIcon icon={solid("reply-all")} />
             Select all ({placeList.length}) places
           </button>
-        </section>
-      </article>
+        </article>
+      </section>
       <ul id={styles.manipulationItemContainer}>
         {displayedTagList.length > 0 &&
           displayedTagList.map((place) => (

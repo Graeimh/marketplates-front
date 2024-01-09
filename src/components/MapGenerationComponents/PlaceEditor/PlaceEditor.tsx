@@ -266,11 +266,11 @@ function PlaceEditor(props: {
         </Helmet>
       )}
 
-      <article
+      <section
         className={formStyles.formContainer}
         id={styles.placeRegisterContainer}
       >
-        <section>
+        <article>
           <form>
             <ul>
               <h1>Register a place</h1>
@@ -503,8 +503,8 @@ function PlaceEditor(props: {
               </button>
             </div>
           </form>
-        </section>
-        <section id={styles.mapDesktopContainer} aria-label="Map">
+        </article>
+        <article id={styles.mapDesktopContainer} aria-label="Map">
           <MapContainer
             style={{ height: "100%", width: "100%" }}
             center={{ lat: 50.633333, lng: 3.066667 }}
@@ -556,8 +556,8 @@ function PlaceEditor(props: {
                 </Marker>
               )}
           </MapContainer>
-        </section>
-      </article>
+        </article>
+      </section>
     </>
   );
 }

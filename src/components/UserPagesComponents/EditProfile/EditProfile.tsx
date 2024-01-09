@@ -122,9 +122,9 @@ function EditProfile(props: {
       </Helmet>
 
       <h2>Edit profile</h2>
-      <article className={formStyles.formContainer} id={styles.userEditForm}>
+      <section className={formStyles.formContainer} id={styles.userEditForm}>
         <form onSubmit={sendEditUserForm}>
-          <section className={formStyles.specificData}>
+          <article className={formStyles.specificData}>
             <h3>Personnal information</h3>
             <ul>
               <li>
@@ -193,8 +193,8 @@ function EditProfile(props: {
                 />
               </li>
             </ul>
-          </section>
-          <section>
+          </article>
+          <article>
             <h3>Credentials</h3>
             <ul>
               <li>
@@ -220,14 +220,14 @@ function EditProfile(props: {
                 />
               </li>
             </ul>
-          </section>
+          </article>
           <div className={formStyles.finalButtonContainer}>
             <button type="submit" disabled={!validForSending}>
               Edit my profile
             </button>
           </div>
         </form>
-      </article>
+      </section>
     </>
   );
 }

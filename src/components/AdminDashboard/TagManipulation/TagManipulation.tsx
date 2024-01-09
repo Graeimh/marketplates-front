@@ -236,12 +236,12 @@ function TagManipulation(props: {
         <link rel="canonical" href="http://localhost:5173/dashboard/tags" />
       </Helmet>
 
-      <article id={manipulationStyles.manipulationContainer}>
+      <section id={manipulationStyles.manipulationContainer}>
         <h1>Manage tags</h1>
-        <section className={formStyles.formContainer}>
+        <article className={formStyles.formContainer}>
           <form onSubmit={sendForm} id={styles.formCreateTag}>
             <h3>Create a tag</h3>
-            <section>
+            <article>
               <ul className={tagStyles.tagEditor}>
                 <li>
                   <label htmlFor="tagName">Tag name : </label>
@@ -254,8 +254,8 @@ function TagManipulation(props: {
                   />
                 </li>
               </ul>
-            </section>
-            <section className={tagStyles.specificDataTagList}>
+            </article>
+            <article className={tagStyles.specificDataTagList}>
               <ul className={tagStyles.tagEditor}>
                 <li className={tagStyles.centeredTagEditorElement}>
                   <HexColorPicker
@@ -292,8 +292,8 @@ function TagManipulation(props: {
                   />
                 </li>
               </ul>
-            </section>
-            <section className={tagStyles.centeredTagEditorElement}>
+            </article>
+            <article className={tagStyles.centeredTagEditorElement}>
               {formData.tagName && (
                 <>
                   <h3>Display</h3>
@@ -307,15 +307,15 @@ function TagManipulation(props: {
                   />
                 </>
               )}
-            </section>
+            </article>
             <div className={formStyles.finalButtonContainer}>
               <button type="submit" disabled={!validForUpdating}>
                 Create Tag
               </button>
             </div>
           </form>
-        </section>
-        <section id={manipulationStyles.searchBar}>
+        </article>
+        <article id={manipulationStyles.searchBar}>
           <label htmlFor="tagQuery">
             <FontAwesomeIcon icon={solid("magnifying-glass")} />
             Search for a tag :
@@ -327,8 +327,8 @@ function TagManipulation(props: {
               setTagQuery(e.target.value);
             }}
           />
-        </section>
-        <section id={manipulationStyles.manipulationButtonsContainer}>
+        </article>
+        <article id={manipulationStyles.manipulationButtonsContainer}>
           <span className={stylesUserDashboard.deleteButton}>
             <button type="button" onClick={() => deletePrimedForDeletion()}>
               <FontAwesomeIcon icon={regular("trash-can")} />
@@ -360,8 +360,8 @@ function TagManipulation(props: {
               </button>
             )}
           </>
-        </section>
-      </article>
+        </article>
+      </section>
       <ul id={manipulationStyles.manipulationItemContainer}>
         {displayedTagList.length > 0 &&
           displayedTagList.map((tag) => (

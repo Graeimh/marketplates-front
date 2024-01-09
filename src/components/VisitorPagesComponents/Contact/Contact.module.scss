@@ -31,11 +31,11 @@
     display: grid;
     grid-template-columns: 50% 50%;
   }
-  #contactDisposition section:first-child {
+  #contactDisposition article:first-child {
     margin-right: 3rem;
   }
 
-  #contactDisposition section:last-child {
+  #contactDisposition article:last-child {
     margin-left: 3rem;
   }
 }

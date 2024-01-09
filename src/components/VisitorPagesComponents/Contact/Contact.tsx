@@ -9,11 +9,11 @@ function Contact() {
         <title>Contact</title>
         <link rel="canonical" href="http://localhost:5173/contact" />
       </Helmet>
-      <article id={styles.contactContainer}>
+      <section id={styles.contactContainer}>
         <h1>Contact</h1>
         <h2>Keep the pot boiling!</h2>
         <div id={styles.contactDisposition}>
-          <section className={styles.contactSections}>
+          <article className={styles.contactSections}>
             <h3>Give us feedback</h3>
             <p>
               If you find a bug of any kind, want to suggest a feature or report
@@ -27,9 +27,9 @@ function Contact() {
                 </a>
               </span>
             </p>
-          </section>
+          </article>
 
-          <section className={styles.contactSections}>
+          <article className={styles.contactSections}>
             <h3>Legal mentions</h3>
             <p>
               This website has been developped by Quentin Guinier, 23 Rue Jean
@@ -41,9 +41,9 @@ function Contact() {
               <a href="https://react-leaflet.js.org/">React Leaflet</a>. We are
               hosted by ...
             </p>
-          </section>
+          </article>
         </div>
-      </article>
+      </section>
     </>
   );
 }

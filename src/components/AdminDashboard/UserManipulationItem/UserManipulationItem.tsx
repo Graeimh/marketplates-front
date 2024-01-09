@@ -119,14 +119,14 @@ function UserManipulationItem(props: {
 
   return (
     <>
-      <article
+      <section
         className={`
           ${props.IsSelected ? styles.primedContainer : styles.itemContainer} ${
           formStyles.formContainer
         }
             `}
       >
-        <section>
+        <article>
           <h2 className={formStyles.itemTitle}>
             User : {props.user.displayName}
           </h2>
@@ -147,9 +147,9 @@ function UserManipulationItem(props: {
               <FontAwesomeIcon icon={solid("user-slash")} /> Delete user
             </button>
           </span>
-        </section>
+        </article>
         <form onSubmit={sendUpdateForm}>
-          <section className={formStyles.specificData}>
+          <article className={formStyles.specificData}>
             <h5>Personnal information</h5>
             <ul>
               <li>
@@ -215,8 +215,8 @@ function UserManipulationItem(props: {
                 />
               </li>
             </ul>
-          </section>
-          <section>
+          </article>
+          <article>
             <h5>Credentials</h5>
             <ul>
               <li>
@@ -240,7 +240,7 @@ function UserManipulationItem(props: {
                 />
               </li>
             </ul>
-          </section>
+          </article>
           <div className={formStyles.finalButtonContainer}>
             <button
               type="submit"
@@ -252,7 +252,7 @@ function UserManipulationItem(props: {
             </button>
           </div>
         </form>
-      </article>
+      </section>
     </>
   );
 }
