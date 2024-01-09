@@ -40,9 +40,12 @@ function Contact() {
             <h4>Edition du site</h4>
             <p>
               Le présent site, accessible à l"URL
-              https://marketplates.netlify.app/ (le « Site »), est édité par :
-              Quentin Guinier, résidant 23 rue Jean Jaurès, de nationalité
-              Française (France), né(e) le 11/07/1996.
+              <a href="https://marketplates.netlify.app/">
+                https://marketplates.netlify.app/
+              </a>
+              (le « Site »), est édité par : Quentin Guinier, résidant 23 rue
+              Jean Jaurès, de nationalité Française (France), né(e) le
+              11/07/1996.
             </p>
             <h4>Hébergement</h4>
             <p>
@@ -55,7 +58,15 @@ function Contact() {
             <h4>Nous contacter</h4>
             <ul>
               <li>Par téléphone: +33620975571</li>
-              <li>Par email: marketplatesowner@gmail.com</li>
+              <li>
+                Par email:{" "}
+                <a
+                  href="mailto:marketplatesowner@gmail.com"
+                  aria-label="Send mail to marketplatesowner@gmail.com"
+                >
+                  marketplatesowner@gmail.com
+                </a>
+              </li>
               <li>Par courrier: 23 rue Jean Jaurès 59810 Lesquin</li>
             </ul>
             <h4>Données personnelles</h4>

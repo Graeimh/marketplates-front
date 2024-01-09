@@ -299,7 +299,7 @@ function TagManipulation(props: {
             <article className={tagStyles.centeredTagEditorElement}>
               {formData.tagName && (
                 <>
-                  <h3>Display</h3>
+                  <h4>Display</h4>
                   <Tag
                     customStyle={{
                       color: formData.tagNameColor,
