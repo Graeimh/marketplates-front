@@ -106,7 +106,7 @@ function PlaceEditor(props: {
   const mapMarkerIcon = icon({
     iconUrl: marker,
     iconSize: [32, 32],
-    iconAnchor: [0, -19],
+    iconAnchor: [-19, 0],
   });
 
   useEffect(() => {
