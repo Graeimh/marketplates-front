@@ -126,10 +126,10 @@ function UserManipulationItem(props: {
         }
             `}
       >
-        <article>
-          <h2 className={formStyles.itemTitle}>
-            User : {props.user.displayName}
-          </h2>
+        <h2 className={formStyles.itemTitle}>
+          User : {props.user.displayName}
+        </h2>
+        <div>
           <button
             type="button"
             className={props.IsSelected ? styles.primedButton : ""}
@@ -147,7 +147,7 @@ function UserManipulationItem(props: {
               <FontAwesomeIcon icon={solid("user-slash")} /> Delete user
             </button>
           </span>
-        </article>
+        </div>
         <form onSubmit={sendUpdateForm}>
           <fieldset className={formStyles.specificData}>
             <legend>Personnal information</legend>
