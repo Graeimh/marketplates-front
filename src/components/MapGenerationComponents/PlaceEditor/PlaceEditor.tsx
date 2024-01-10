@@ -103,7 +103,11 @@ function PlaceEditor(props: {
       : tagSelection;
 
   // Allows to fetch the value of a marker's image
-  const mapMarkerIcon = icon({ iconUrl: marker, iconSize: [32, 32] });
+  const mapMarkerIcon = icon({
+    iconUrl: marker,
+    iconSize: [32, 32],
+    iconAnchor: [0, -19],
+  });
 
   useEffect(() => {
     getUserTags();
@@ -331,34 +335,32 @@ function PlaceEditor(props: {
 
                   {formData.gpsCoordinates.latitude !== null &&
                     formData.gpsCoordinates.longitude !== null && (
-                      <div className={styles.markerAdjuster}>
-                        <Marker
-                          icon={mapMarkerIcon}
-                          position={[
-                            formData.gpsCoordinates.latitude,
-                            formData.gpsCoordinates.longitude,
-                          ]}
-                        >
-                          <Popup>
-                            <h3>{formData.name}</h3>
-                            <p>{formData.description}</p>
-                            <ul>
-                              {formData.tagList.map((tag) => (
-                                <li>
-                                  <Tag
-                                    tagName={tag.name}
-                                    customStyle={{
-                                      color: tag.nameColor,
-                                      backgroundColor: tag.backgroundColor,
-                                    }}
-                                    isTiny={true}
-                                  />
-                                </li>
-                              ))}
-                            </ul>
-                          </Popup>
-                        </Marker>
-                      </div>
+                      <Marker
+                        icon={mapMarkerIcon}
+                        position={[
+                          formData.gpsCoordinates.latitude,
+                          formData.gpsCoordinates.longitude,
+                        ]}
+                      >
+                        <Popup>
+                          <h3>{formData.name}</h3>
+                          <p>{formData.description}</p>
+                          <ul>
+                            {formData.tagList.map((tag) => (
+                              <li>
+                                <Tag
+                                  tagName={tag.name}
+                                  customStyle={{
+                                    color: tag.nameColor,
+                                    backgroundColor: tag.backgroundColor,
+                                  }}
+                                  isTiny={true}
+                                />
+                              </li>
+                            ))}
+                          </ul>
+                        </Popup>
+                      </Marker>
                     )}
                 </MapContainer>
               </li>
