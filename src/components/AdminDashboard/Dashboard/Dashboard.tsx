@@ -15,7 +15,7 @@ function Dashboard() {
         />
       </Helmet>
       <nav id={styles.dashboardPanel}>
-        <ul>
+        <ul id={styles.navPanel}>
           <li>
             <Link to="/dashboard/users">
               <span className={styles.dashboardOptionChevron}>

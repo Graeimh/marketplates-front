@@ -97,7 +97,6 @@
 
 #dashboardContentContainer {
   margin-bottom: 12rem;
-  margin-left: 5%;
 }
 
 /* Navbar */
@@ -167,6 +166,9 @@
   height: 4rem;
 }
 
+#navPanel {
+  margin-left: 15%;
+}
 /* For tablets: */
 @media only screen and (min-width: 768px) {
   #dashboardPanel li {
@@ -215,6 +217,10 @@
     height: 4rem;
     border-radius: 50%;
     margin-right: 2rem;
+  }
+
+  #navPanel {
+    margin-left: 10%;
   }
 }
 
@@ -276,5 +282,9 @@
 
   #tablet #homeButton {
     margin-bottom: 2rem;
+  }
+
+  #navPanel {
+    margin-left: 5%;
   }
 }
