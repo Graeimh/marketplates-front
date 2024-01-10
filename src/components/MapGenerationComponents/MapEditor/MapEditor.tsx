@@ -268,7 +268,7 @@ function MapEditor(props: {
                 iterationAdress !== undefined ? iterationAdress : ""
               );
 
-            const lol: IPlaceUpdated[] = mapIterationsData.map(
+            const editedMapIterations: IPlaceUpdated[] = mapIterationsData.map(
               (iteration, index) => ({
                 address: adressData[index],
                 description: iteration.customDescription,
@@ -288,7 +288,10 @@ function MapEditor(props: {
               })
             );
 
-            mapToEditIterations = [...mapToEditIterations, ...lol];
+            mapToEditIterations = [
+              ...mapToEditIterations,
+              ...editedMapIterations,
+            ];
           }
 
           setFormData({
@@ -583,11 +586,9 @@ function MapEditor(props: {
                       </ul>
 
                       <h3>Privacy</h3>
+                      <h4>Choose your privacy setting:</h4>
                       <article id={styles.privacyRadioContainer}>
                         <div>
-                          <label htmlFor="privacyStatus">
-                            Choose your privacy setting:
-                          </label>
                           <input
                             type="radio"
                             id="privacyStatus1"

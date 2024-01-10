@@ -98,7 +98,7 @@ function PlaceEditor(props: {
   ].filter((tag) => new RegExp(tagQuery, "i").test(tag.name));
 
   const tagListToDisplay: ITag[] =
-    formData.tagList.length > 0
+    tagQuery.length > 0
       ? tagListWithoutSelectedAndFiltered.slice(0, 10)
       : tagSelection;
 
