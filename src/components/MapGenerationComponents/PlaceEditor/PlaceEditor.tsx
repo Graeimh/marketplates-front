@@ -328,7 +328,7 @@ function PlaceEditor(props: {
                         ? formData.gpsCoordinates.longitude
                         : 3.066667
                     }
-                    startingZoom={13}
+                    startingZoom={5}
                     doubleClickEvent={doubleClickMaphandler}
                   />
                   <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
