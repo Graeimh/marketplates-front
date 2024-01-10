@@ -271,6 +271,7 @@ function TagManipulation(props: {
                     <input
                       type="text"
                       name="tagBackgroundColor"
+                      id="tagBackgroundColor"
                       onInput={updateField}
                       value={formData.tagBackgroundColor}
                     />
@@ -287,6 +288,7 @@ function TagManipulation(props: {
                     <input
                       type="text"
                       name="tagNameColor"
+                      id="tagNameColor"
                       onInput={updateField}
                       value={formData.tagNameColor}
                     />
@@ -324,6 +326,7 @@ function TagManipulation(props: {
             <input
               type="text"
               name="tagQuery"
+              id="tagQuery"
               onChange={(e) => {
                 setTagQuery(e.target.value);
               }}
