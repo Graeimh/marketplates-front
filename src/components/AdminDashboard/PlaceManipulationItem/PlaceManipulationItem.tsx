@@ -76,8 +76,9 @@ function PlaceManipulationItem(props: {
           ${styles.placeDashboardContainer}
             `}
       >
-        <article>
-          <h2 className={formStyles.itemTitle}>{props.place.name}</h2>
+        <h2 className={formStyles.itemTitle}>{props.place.name}</h2>
+
+        <div>
           <button
             type="button"
             className={props.IsSelected ? itemStyles.primedButton : ""}
@@ -97,7 +98,7 @@ function PlaceManipulationItem(props: {
               Delete place
             </button>
           </span>
-        </article>
+        </div>
         <article>
           <h5>Address :</h5>
           {props.place.address}

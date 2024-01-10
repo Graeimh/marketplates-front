@@ -146,9 +146,9 @@ function PlaceManipulation(props: {
         />
       </Helmet>
 
-      <section id={styles.manipulationContainer}>
+      <aside id={styles.manipulationContainer}>
         <h1>Manage places</h1>
-        <article id={styles.searchBar}>
+        <div id={styles.searchBar}>
           <label htmlFor="placeQuery">
             <FontAwesomeIcon icon={solid("magnifying-glass")} />
             Search for a place :{" "}
@@ -161,8 +161,8 @@ function PlaceManipulation(props: {
               setPlaceQuery(e.target.value);
             }}
           />
-        </article>
-        <article id={styles.manipulationButtonsContainer}>
+        </div>
+        <div id={styles.manipulationButtonsContainer}>
           <span className={stylesUserDashboard.deleteButton}>
             <button type="button" onClick={() => deletePrimedForDeletion()}>
               <FontAwesomeIcon icon={regular("trash-can")} />
@@ -181,12 +181,12 @@ function PlaceManipulation(props: {
             <FontAwesomeIcon icon={solid("reply-all")} />
             Select all ({placeList.length}) places
           </button>
-        </article>
-      </section>
-      <ul id={styles.manipulationItemContainer}>
-        {displayedTagList.length > 0 &&
-          displayedTagList.map((place) => (
-            <li>
+        </div>
+      </aside>
+      <main>
+        <article id={styles.manipulationItemContainer}>
+          {displayedTagList.length > 0 &&
+            displayedTagList.map((place) => (
               <PlaceManipulationItem
                 place={place}
                 primeForDeletion={manageDeletionList}
@@ -195,9 +195,9 @@ function PlaceManipulation(props: {
                 IsSelected={primedForDeletionList.indexOf(place._id) !== -1}
                 messageSetter={props.messageSetter}
               />
-            </li>
-          ))}
-      </ul>
+            ))}
+        </article>
+      </main>
     </>
   );
 }
