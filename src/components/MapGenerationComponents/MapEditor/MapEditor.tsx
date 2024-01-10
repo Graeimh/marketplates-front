@@ -455,8 +455,8 @@ function MapEditor(props: {
           ? `Editing ${formData.name}`
           : `Creating ${formData.name}`}
       </h1>
-      <section id={styles.mapEditorContainer}>
-        <article id={styles.mapContainer} aria-label="Map">
+      <div id={styles.mapEditorContainer}>
+        <aside id={styles.mapContainer} aria-label="Map">
           <MapContainer
             style={{ height: "100%", width: "100%" }}
             center={{ lat: 50.633333, lng: 3.066667 }}
@@ -525,353 +525,343 @@ function MapEditor(props: {
                 </Marker>
               ))}
           </MapContainer>
-        </article>
+        </aside>
 
-        <article id={styles.mapSidebar}>
-          <article className={styles.mapForms}>
-            <form className={formStyles.formContainer}>
-              <button
-                aria-label={`${
-                  mapDataCollapseVisible ? "Close" : "Open"
-                } the Map data & privacy collapse`}
-                type="button"
-                onClick={() =>
-                  setMapDataCollapseVisible(!mapDataCollapseVisible)
-                }
+        <main id={styles.mapSidebar} className={styles.mapForms}>
+          <form className={formStyles.formContainer}>
+            <button
+              aria-label={`${
+                mapDataCollapseVisible ? "Close" : "Open"
+              } the Map data & privacy collapse`}
+              type="button"
+              onClick={() => setMapDataCollapseVisible(!mapDataCollapseVisible)}
+              className={
+                mapDataCollapseVisible
+                  ? styles.collapseButtonActive
+                  : styles.collapseButtonInactive
+              }
+            >
+              Map data & privacy
+              <span>
+                {mapDataCollapseVisible ? (
+                  <FontAwesomeIcon icon={solid("chevron-down")} />
+                ) : (
+                  <FontAwesomeIcon icon={solid("chevron-up")} />
+                )}
+              </span>
+            </button>
+
+            <article id={styles.mapDataContainer}>
+              <article
                 className={
                   mapDataCollapseVisible
+                    ? styles.mapDataVisible
+                    : styles.mapDataCollapsed
+                }
+              >
+                {mapDataCollapseVisible && (
+                  <>
+                    <fieldset>
+                      <legend>Map data</legend>
+                      <label htmlFor="name">Name : </label>
+                      <input
+                        type="text"
+                        name="name"
+                        id="name"
+                        required
+                        onInput={updateField}
+                        value={formData.name}
+                      />
+                      <label htmlFor="description">Description : </label>
+                      <input
+                        type="text"
+                        name="description"
+                        required
+                        onInput={updateField}
+                        value={formData.description}
+                      />
+                    </fieldset>
+
+                    <fieldset>
+                      <legend>Privacy</legend>
+                      <h4>Choose your privacy setting:</h4>
+                      <div id={styles.privacyRadioContainer}>
+                        <input
+                          type="radio"
+                          id="privacyStatus1"
+                          name="privacyStatus"
+                          value={PrivacyStatus.Private}
+                          onChange={() => {
+                            setFormData({
+                              ...formData,
+                              privacyStatus: PrivacyStatus.Private,
+                            });
+                          }}
+                          checked={
+                            formData.privacyStatus === PrivacyStatus.Private
+                          }
+                        />
+                        <label htmlFor="privacyStatus1">Private</label>
+                      </div>
+                      <div>
+                        <input
+                          type="radio"
+                          id="privacyStatus2"
+                          name="privacyStatus"
+                          value={PrivacyStatus.Protected}
+                          onChange={() => {
+                            setFormData({
+                              ...formData,
+                              privacyStatus: PrivacyStatus.Protected,
+                            });
+                          }}
+                          checked={
+                            formData.privacyStatus === PrivacyStatus.Protected
+                          }
+                        />
+                        <label htmlFor="privacyStatus2">Friends</label>
+                      </div>
+                      <div>
+                        <input
+                          type="radio"
+                          id="privacyStatus3"
+                          name="privacyStatus"
+                          value={PrivacyStatus.Public}
+                          onChange={() => {
+                            setFormData({
+                              ...formData,
+                              privacyStatus: PrivacyStatus.Public,
+                            });
+                          }}
+                          checked={
+                            formData.privacyStatus === PrivacyStatus.Public
+                          }
+                        />
+                        <label htmlFor="privacyStatus3">Public</label>
+                      </div>
+                    </fieldset>
+                  </>
+                )}
+              </article>
+
+              <button
+                aria-label={`${
+                  addressCollapseVisible ? "Close" : "Open"
+                } the Find an address collapse`}
+                type="button"
+                onClick={() =>
+                  setAddressCollapseVisible(!addressCollapseVisible)
+                }
+                className={
+                  addressCollapseVisible
                     ? styles.collapseButtonActive
                     : styles.collapseButtonInactive
                 }
               >
-                Map data & privacy
+                Find an address
                 <span>
-                  {mapDataCollapseVisible ? (
+                  {addressCollapseVisible ? (
                     <FontAwesomeIcon icon={solid("chevron-down")} />
                   ) : (
                     <FontAwesomeIcon icon={solid("chevron-up")} />
                   )}
                 </span>
               </button>
+              <article
+                className={
+                  addressCollapseVisible
+                    ? styles.addressVisible
+                    : styles.addressCollapsed
+                }
+                style={{
+                  height: addressCollapseVisible
+                    ? `${13 + newResults.length * 2}rem`
+                    : "0px",
+                }}
+                id={styles.addressListContainer}
+              >
+                <h3>Find an address</h3>
+                <ul>
+                  <label htmlFor="address">Get an address : </label>
+                  <input
+                    type="text"
+                    name="address"
+                    id="address"
+                    onInput={(e) => {
+                      setAddressQuery(e.target.value);
+                    }}
+                  />
 
-              <article id={styles.mapDataContainer}>
-                <article
-                  className={
-                    mapDataCollapseVisible
-                      ? styles.mapDataVisible
-                      : styles.mapDataCollapsed
-                  }
-                >
-                  {mapDataCollapseVisible && (
-                    <>
-                      <h3>Map data</h3>
-                      <ul>
-                        <li>
-                          <label htmlFor="name">Name : </label>
-                          <input
-                            type="text"
-                            name="name"
-                            id="name"
-                            required
-                            onInput={updateField}
-                            value={formData.name}
-                          />
-                        </li>
-                        <li>
-                          <label htmlFor="description">Description : </label>
-                          <input
-                            type="text"
-                            name="description"
-                            required
-                            onInput={updateField}
-                            value={formData.description}
-                          />
-                        </li>
-                      </ul>
+                  <li className={formStyles.finalButtonContainer}>
+                    <button
+                      type="button"
+                      onClick={() => {
+                        handleAdressButton();
+                      }}
+                    >
+                      Get locations
+                    </button>
+                  </li>
+                </ul>
 
-                      <h3>Privacy</h3>
-                      <h4>Choose your privacy setting:</h4>
-                      <article id={styles.privacyRadioContainer}>
-                        <div>
-                          <input
-                            type="radio"
-                            id="privacyStatus1"
-                            name="privacyStatus"
-                            value={PrivacyStatus.Private}
-                            onChange={() => {
-                              setFormData({
-                                ...formData,
-                                privacyStatus: PrivacyStatus.Private,
-                              });
-                            }}
-                            checked={
-                              formData.privacyStatus === PrivacyStatus.Private
-                            }
-                          />
-                          <label htmlFor="privacyStatus1">Private</label>
-                        </div>
-                        <div>
-                          <input
-                            type="radio"
-                            id="privacyStatus2"
-                            name="privacyStatus"
-                            value={PrivacyStatus.Protected}
-                            onChange={() => {
-                              setFormData({
-                                ...formData,
-                                privacyStatus: PrivacyStatus.Protected,
-                              });
-                            }}
-                            checked={
-                              formData.privacyStatus === PrivacyStatus.Protected
-                            }
-                          />
-                          <label htmlFor="privacyStatus2">Friends</label>
-                        </div>
-                        <div>
-                          <input
-                            type="radio"
-                            id="privacyStatus3"
-                            name="privacyStatus"
-                            value={PrivacyStatus.Public}
-                            onChange={() => {
-                              setFormData({
-                                ...formData,
-                                privacyStatus: PrivacyStatus.Public,
-                              });
-                            }}
-                            checked={
-                              formData.privacyStatus === PrivacyStatus.Public
-                            }
-                          />
-                          <label htmlFor="privacyStatus3">Public</label>
-                        </div>
-                      </article>
-                    </>
+                {newResults.length > 0 && (
+                  <ul className={formStyles.addressClickables}>
+                    {newResults.map((result) => (
+                      <li
+                        key={result.label}
+                        onClick={() => {
+                          setCoordinates({
+                            longitude: result.x,
+                            latitude: result.y,
+                          });
+                          setNewResults([]);
+                        }}
+                      >
+                        {result.label}
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </article>
+              <button
+                aria-label={`${
+                  iterationCollapseVisible ? "Close" : "Open"
+                } the Filters collapse`}
+                type="button"
+                onClick={() =>
+                  setFiltersCollapseVisible(!filtersCollapseVisible)
+                }
+                className={
+                  filtersCollapseVisible
+                    ? styles.collapseButtonActive
+                    : styles.collapseButtonInactive
+                }
+              >
+                Filters
+                <span>
+                  {filtersCollapseVisible ? (
+                    <FontAwesomeIcon icon={solid("chevron-down")} />
+                  ) : (
+                    <FontAwesomeIcon icon={solid("chevron-up")} />
                   )}
-                </article>
-
-                <button
-                  aria-label={`${
-                    addressCollapseVisible ? "Close" : "Open"
-                  } the Find an address collapse`}
-                  type="button"
-                  onClick={() =>
-                    setAddressCollapseVisible(!addressCollapseVisible)
-                  }
-                  className={
-                    addressCollapseVisible
-                      ? styles.collapseButtonActive
-                      : styles.collapseButtonInactive
-                  }
-                >
-                  Find an address
-                  <span>
-                    {addressCollapseVisible ? (
-                      <FontAwesomeIcon icon={solid("chevron-down")} />
-                    ) : (
-                      <FontAwesomeIcon icon={solid("chevron-up")} />
-                    )}
-                  </span>
-                </button>
-                <article
-                  className={
-                    addressCollapseVisible
-                      ? styles.addressVisible
-                      : styles.addressCollapsed
-                  }
-                  style={{
-                    height: addressCollapseVisible
-                      ? `${13 + newResults.length * 2}rem`
-                      : "0px",
-                  }}
-                  id={styles.addressListContainer}
-                >
-                  <h3>Find an address</h3>
-                  <ul>
-                    <label htmlFor="address">Get an address : </label>
+                </span>
+              </button>
+              <article
+                className={
+                  filtersCollapseVisible
+                    ? styles.addressVisible
+                    : styles.addressCollapsed
+                }
+                id={styles.scrollableContainer}
+                style={{
+                  height: filtersCollapseVisible
+                    ? `${
+                        28 + Math.floor(placeFilterQuery.tags.length / 5) * 2
+                      }rem`
+                    : "0px",
+                }}
+              >
+                <h3>Filtering place</h3>
+                <ul>
+                  <li>
+                    <label htmlFor="filterNameQuery">
+                      Filter places by name:{" "}
+                    </label>
                     <input
                       type="text"
-                      name="address"
-                      id="address"
-                      onInput={(e) => {
-                        setAddressQuery(e.target.value);
-                      }}
+                      name="filterNameQuery"
+                      id="filterNameQuery"
+                      onInput={updatePlaceFilterQueryFields}
+                      value={placeFilterQuery.filterNameQuery}
                     />
-
-                    <li className={formStyles.finalButtonContainer}>
-                      <button
-                        type="button"
-                        onClick={() => {
-                          handleAdressButton();
-                        }}
-                      >
-                        Get locations
-                      </button>
-                    </li>
-                  </ul>
-
-                  {newResults.length > 0 && (
-                    <ul className={formStyles.addressClickables}>
-                      {newResults.map((result) => (
-                        <li
-                          key={result.label}
-                          onClick={() => {
-                            setCoordinates({
-                              longitude: result.x,
-                              latitude: result.y,
-                            });
-                            setNewResults([]);
+                  </li>
+                  <li>
+                    <label htmlFor="filterTagQuery">
+                      Filter places by tags:{" "}
+                    </label>
+                    <input
+                      type="text"
+                      name="filterTagQuery"
+                      id="filterTagQuery"
+                      onInput={updatePlaceFilterQueryFields}
+                      value={placeFilterQuery.filterTagQuery}
+                    />
+                  </li>
+                  <li>
+                    <span className={iconStyles.iconTitle}>Select tags:</span>
+                    {tagListToDisplay.length > 0 &&
+                      tagListToDisplay.map((tag) => (
+                        <Tag
+                          customStyle={{
+                            color: tag.nameColor,
+                            backgroundColor: tag.backgroundColor,
                           }}
-                        >
-                          {result.label}
-                        </li>
+                          tagName={tag.name}
+                          onClick={() => {
+                            setPlaceFilterQuery({
+                              ...placeFilterQuery,
+                              tags: [...placeFilterQuery.tags, tag],
+                            });
+                            setTagFilterList(
+                              tagFilterList.filter(
+                                (tagId) => tagId._id !== tag._id
+                              )
+                            );
+                          }}
+                          isIn={placeFilterQuery.tags.some(
+                            (tagData) => tagData._id === tag._id
+                          )}
+                          isTiny={false}
+                          key={tag.name}
+                        />
                       ))}
-                    </ul>
-                  )}
-                </article>
-                <button
-                  aria-label={`${
-                    iterationCollapseVisible ? "Close" : "Open"
-                  } the Filters collapse`}
-                  type="button"
-                  onClick={() =>
-                    setFiltersCollapseVisible(!filtersCollapseVisible)
-                  }
-                  className={
-                    filtersCollapseVisible
-                      ? styles.collapseButtonActive
-                      : styles.collapseButtonInactive
-                  }
-                >
-                  Filters
-                  <span>
-                    {filtersCollapseVisible ? (
-                      <FontAwesomeIcon icon={solid("chevron-down")} />
-                    ) : (
-                      <FontAwesomeIcon icon={solid("chevron-up")} />
-                    )}
-                  </span>
-                </button>
-                <article
-                  className={
-                    filtersCollapseVisible
-                      ? styles.addressVisible
-                      : styles.addressCollapsed
-                  }
-                  id={styles.scrollableContainer}
-                  style={{
-                    height: filtersCollapseVisible
-                      ? `${
-                          28 + Math.floor(placeFilterQuery.tags.length / 5) * 2
-                        }rem`
-                      : "0px",
-                  }}
-                >
-                  <h3>Filtering place</h3>
-                  <ul>
-                    <li>
-                      <label htmlFor="filterNameQuery">
-                        Filter places by name:{" "}
-                      </label>
-                      <input
-                        type="text"
-                        name="filterNameQuery"
-                        id="filterNameQuery"
-                        onInput={updatePlaceFilterQueryFields}
-                        value={placeFilterQuery.filterNameQuery}
-                      />
-                    </li>
-                    <li>
-                      <label htmlFor="filterTagQuery">
-                        Filter places by tags:{" "}
-                      </label>
-                      <input
-                        type="text"
-                        name="filterTagQuery"
-                        id="filterTagQuery"
-                        onInput={updatePlaceFilterQueryFields}
-                        value={placeFilterQuery.filterTagQuery}
-                      />
-                    </li>
+                  </li>
+                  {placeFilterQuery.tags.length > 0 && (
                     <li>
                       <span className={iconStyles.iconTitle}>Select tags:</span>
-                      {tagListToDisplay.length > 0 &&
-                        tagListToDisplay.map((tag) => (
-                          <Tag
-                            customStyle={{
-                              color: tag.nameColor,
-                              backgroundColor: tag.backgroundColor,
-                            }}
-                            tagName={tag.name}
-                            onClick={() => {
-                              setPlaceFilterQuery({
-                                ...placeFilterQuery,
-                                tags: [...placeFilterQuery.tags, tag],
-                              });
-                              setTagFilterList(
-                                tagFilterList.filter(
-                                  (tagId) => tagId._id !== tag._id
-                                )
-                              );
-                            }}
-                            isIn={placeFilterQuery.tags.some(
-                              (tagData) => tagData._id === tag._id
-                            )}
-                            isTiny={false}
-                            key={tag.name}
-                          />
-                        ))}
+                      {placeFilterQuery.tags.map((tag) => (
+                        <Tag
+                          customStyle={{
+                            color: tag.nameColor,
+                            backgroundColor: tag.backgroundColor,
+                          }}
+                          tagName={tag.name}
+                          onClose={() => {
+                            setPlaceFilterQuery({
+                              ...placeFilterQuery,
+                              tags: placeFilterQuery.tags.filter(
+                                (tagId) => tagId._id !== tag._id
+                              ),
+                            });
+                            setTagFilterList([...tagFilterList, tag]);
+                          }}
+                          isIn={placeFilterQuery.tags.some(
+                            (tagData) => tagData._id === tag._id
+                          )}
+                          isTiny={false}
+                          key={tag.name}
+                        />
+                      ))}
                     </li>
-                    {placeFilterQuery.tags.length > 0 && (
-                      <li>
-                        <span className={iconStyles.iconTitle}>
-                          Select tags:
-                        </span>
-                        {placeFilterQuery.tags.map((tag) => (
-                          <Tag
-                            customStyle={{
-                              color: tag.nameColor,
-                              backgroundColor: tag.backgroundColor,
-                            }}
-                            tagName={tag.name}
-                            onClose={() => {
-                              setPlaceFilterQuery({
-                                ...placeFilterQuery,
-                                tags: placeFilterQuery.tags.filter(
-                                  (tagId) => tagId._id !== tag._id
-                                ),
-                              });
-                              setTagFilterList([...tagFilterList, tag]);
-                            }}
-                            isIn={placeFilterQuery.tags.some(
-                              (tagData) => tagData._id === tag._id
-                            )}
-                            isTiny={false}
-                            key={tag.name}
-                          />
-                        ))}
-                      </li>
-                    )}
-                    <li className={formStyles.finalButtonContainer}>
-                      <button
-                        type="button"
-                        onClick={() => {
-                          setPlaceFilterQuery({
-                            filterNameQuery: "",
-                            filterTagQuery: "",
-                            tags: [],
-                          });
-                        }}
-                      >
-                        Clear filter
-                      </button>
-                    </li>
-                  </ul>
-                </article>
+                  )}
+                  <li className={formStyles.finalButtonContainer}>
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setPlaceFilterQuery({
+                          filterNameQuery: "",
+                          filterTagQuery: "",
+                          tags: [],
+                        });
+                      }}
+                    >
+                      Clear filter
+                    </button>
+                  </li>
+                </ul>
               </article>
-            </form>
-          </article>
+            </article>
+          </form>
           <article className={styles.mapForms}>
             {iterationValues.address.length > 0 && (
               <>
@@ -1059,8 +1049,8 @@ function MapEditor(props: {
               {props.editedMap ? "Edit map" : "Create map"}
             </button>
           </article>
-        </article>
-      </section>
+        </main>
+      </div>
     </>
   );
 }
