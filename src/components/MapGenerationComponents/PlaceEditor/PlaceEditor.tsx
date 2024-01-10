@@ -331,32 +331,34 @@ function PlaceEditor(props: {
 
                   {formData.gpsCoordinates.latitude !== null &&
                     formData.gpsCoordinates.longitude !== null && (
-                      <Marker
-                        icon={mapMarkerIcon}
-                        position={[
-                          formData.gpsCoordinates.latitude,
-                          formData.gpsCoordinates.longitude,
-                        ]}
-                      >
-                        <Popup>
-                          <h3>{formData.name}</h3>
-                          <p>{formData.description}</p>
-                          <ul>
-                            {formData.tagList.map((tag) => (
-                              <li>
-                                <Tag
-                                  tagName={tag.name}
-                                  customStyle={{
-                                    color: tag.nameColor,
-                                    backgroundColor: tag.backgroundColor,
-                                  }}
-                                  isTiny={true}
-                                />
-                              </li>
-                            ))}
-                          </ul>
-                        </Popup>
-                      </Marker>
+                      <div className={styles.markerAdjuster}>
+                        <Marker
+                          icon={mapMarkerIcon}
+                          position={[
+                            formData.gpsCoordinates.latitude,
+                            formData.gpsCoordinates.longitude,
+                          ]}
+                        >
+                          <Popup>
+                            <h3>{formData.name}</h3>
+                            <p>{formData.description}</p>
+                            <ul>
+                              {formData.tagList.map((tag) => (
+                                <li>
+                                  <Tag
+                                    tagName={tag.name}
+                                    customStyle={{
+                                      color: tag.nameColor,
+                                      backgroundColor: tag.backgroundColor,
+                                    }}
+                                    isTiny={true}
+                                  />
+                                </li>
+                              ))}
+                            </ul>
+                          </Popup>
+                        </Marker>
+                      </div>
                     )}
                 </MapContainer>
               </li>
