@@ -9,7 +9,7 @@ const LayoutDashboard = () => {
     <>
       <div id={styles.dashboardContainer}>
         <header aria-label="Admin dashboard header">
-          <nav>
+          <nav id={styles.dashboardNavBar}>
             <ul id={styles.small}>
               <li>
                 <Link

@@ -15,33 +15,41 @@ function Dashboard() {
         />
       </Helmet>
       <nav id={styles.dashboardPanel}>
-        <Link to="/dashboard/users">
-          <span className={styles.dashboardOptionChevron}>
-            <FontAwesomeIcon icon={solid("chevron-right")} />
-          </span>
-          <span className={styles.dashboardOptionText}>Manage users</span>
-          <span className={styles.dashboardOptionDecorator}>
-            <FontAwesomeIcon icon={solid("users")} />
-          </span>
-        </Link>
-        <Link to="/dashboard/tags">
-          <span className={styles.dashboardOptionChevron}>
-            <FontAwesomeIcon icon={solid("chevron-right")} />
-          </span>
-          <span className={styles.dashboardOptionText}>Manage tags</span>
-          <span className={styles.dashboardOptionDecorator}>
-            <FontAwesomeIcon icon={solid("tags")} />
-          </span>
-        </Link>
-        <Link to="/dashboard/places">
-          <span className={styles.dashboardOptionChevron}>
-            <FontAwesomeIcon icon={solid("chevron-right")} />
-          </span>
-          <span className={styles.dashboardOptionText}>Manage places</span>
-          <span className={styles.dashboardOptionDecorator}>
-            <FontAwesomeIcon icon={solid("shop")} />
-          </span>
-        </Link>
+        <ul>
+          <li>
+            <Link to="/dashboard/users">
+              <span className={styles.dashboardOptionChevron}>
+                <FontAwesomeIcon icon={solid("chevron-right")} />
+              </span>
+              <span className={styles.dashboardOptionText}>Manage users</span>
+              <span className={styles.dashboardOptionDecorator}>
+                <FontAwesomeIcon icon={solid("users")} />
+              </span>
+            </Link>
+          </li>
+          <li>
+            <Link to="/dashboard/tags">
+              <span className={styles.dashboardOptionChevron}>
+                <FontAwesomeIcon icon={solid("chevron-right")} />
+              </span>
+              <span className={styles.dashboardOptionText}>Manage tags</span>
+              <span className={styles.dashboardOptionDecorator}>
+                <FontAwesomeIcon icon={solid("tags")} />
+              </span>
+            </Link>
+          </li>
+          <li>
+            <Link to="/dashboard/places">
+              <span className={styles.dashboardOptionChevron}>
+                <FontAwesomeIcon icon={solid("chevron-right")} />
+              </span>
+              <span className={styles.dashboardOptionText}>Manage places</span>
+              <span className={styles.dashboardOptionDecorator}>
+                <FontAwesomeIcon icon={solid("shop")} />
+              </span>
+            </Link>
+          </li>
+        </ul>
       </nav>
     </>
   );
