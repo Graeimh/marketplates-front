@@ -162,70 +162,68 @@ function UserManipulationItem(props: {
               onInput={updateField}
               value={formData.firstName}
             />
-            <label htmlFor={`firstName${formData.lastName}`}>
-              Last name :{" "}
-            </label>
+            <label htmlFor={`lastName${formData.lastName}`}>Last name : </label>
             <input
               type="text"
               name="lastName"
-              id={`firstName${formData.lastName}`}
+              id={`lastName${formData.lastName}`}
               onInput={updateField}
               value={formData.lastName}
             />
             <div>
-              <label htmlFor={`firstName${formData.streetAddress}`}>
+              <label htmlFor={`streetAddress${formData.streetAddress}`}>
                 Street address :{" "}
               </label>
               <input
                 type="text"
                 name="streetAddress"
-                id={`firstName${formData.streetAddress}`}
+                id={`streetAddress${formData.streetAddress}`}
                 onInput={updateField}
                 value={formData.streetAddress}
               />
             </div>
-            <label htmlFor={`firstName${formData.county}`}>County : </label>
+            <label htmlFor={`county${formData.county}`}>County : </label>
             <input
               type="text"
               name="county"
-              id={`firstName${formData.county}`}
+              id={`county${formData.county}`}
               onInput={updateField}
               value={formData.county}
             />
-            <label htmlFor={`firstName${formData.city}`}>City : </label>
+            <label htmlFor={`city${formData.city}`}>City : </label>
             <input
               type="text"
               name="city"
-              id={`firstName${formData.city}`}
+              id={`city${formData.city}`}
               onInput={updateField}
               value={formData.city}
             />
-            <label htmlFor={`firstName${formData.country}`}>Country : </label>
+            <label htmlFor={`country${formData.country}`}>Country : </label>
             <input
               type="text"
               name="country"
-              id={`firstName${formData.country}`}
+              id={`country${formData.country}`}
               onInput={updateField}
               value={formData.country}
             />
           </fieldset>
           <fieldset>
             <legend>Credentials</legend>
-            <label htmlFor={`firstName${formData.displayName}`}>
+            <label htmlFor={`displayName${formData.displayName}`}>
               Nickname :{" "}
             </label>
             <input
               type="text"
               name="displayName"
-              id={`firstName${formData.displayName}`}
+              id={`displayName${formData.displayName}`}
               onInput={updateField}
               value={formData.displayName}
             />
-            <label htmlFor={`firstName${formData.email}`}>Email : </label>
+            <label htmlFor={`email${formData.email}`}>Email : </label>
             <input
               type="email"
               name="email"
-              id={`firstName${formData.email}`}
+              id={`email${formData.email}`}
               onInput={updateField}
               value={formData.email}
             />
