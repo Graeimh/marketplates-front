@@ -151,28 +151,23 @@ function UserManipulationItem(props: {
         <form onSubmit={sendUpdateForm}>
           <fieldset className={formStyles.specificData}>
             <legend>Personnal information</legend>
-            <ul>
-              <li>
-                <label htmlFor="firstName">First name : </label>
-                <input
-                  type="text"
-                  name="firstName"
-                  id="firstName"
-                  onInput={updateField}
-                  value={formData.firstName}
-                />
-              </li>
-              <li>
-                <label htmlFor="lastName">Last name : </label>
-                <input
-                  type="text"
-                  name="lastName"
-                  id="lastName"
-                  onInput={updateField}
-                  value={formData.lastName}
-                />
-              </li>
-            </ul>
+
+            <label htmlFor="firstName">First name : </label>
+            <input
+              type="text"
+              name="firstName"
+              id="firstName"
+              onInput={updateField}
+              value={formData.firstName}
+            />
+            <label htmlFor="lastName">Last name : </label>
+            <input
+              type="text"
+              name="lastName"
+              id="lastName"
+              onInput={updateField}
+              value={formData.lastName}
+            />
             <div>
               <label htmlFor="streetAddress">Street address : </label>
               <input
@@ -183,38 +178,30 @@ function UserManipulationItem(props: {
                 value={formData.streetAddress}
               />
             </div>
-            <ul>
-              <li>
-                <label htmlFor="county">County : </label>
-                <input
-                  type="text"
-                  name="county"
-                  id="county"
-                  onInput={updateField}
-                  value={formData.county}
-                />
-              </li>
-              <li>
-                <label htmlFor="city">City : </label>
-                <input
-                  type="text"
-                  name="city"
-                  id="city"
-                  onInput={updateField}
-                  value={formData.city}
-                />
-              </li>
-              <li>
-                <label htmlFor="country">Country : </label>
-                <input
-                  type="text"
-                  name="country"
-                  id="country"
-                  onInput={updateField}
-                  value={formData.country}
-                />
-              </li>
-            </ul>
+            <label htmlFor="county">County : </label>
+            <input
+              type="text"
+              name="county"
+              id="county"
+              onInput={updateField}
+              value={formData.county}
+            />
+            <label htmlFor="city">City : </label>
+            <input
+              type="text"
+              name="city"
+              id="city"
+              onInput={updateField}
+              value={formData.city}
+            />
+            <label htmlFor="country">Country : </label>
+            <input
+              type="text"
+              name="country"
+              id="country"
+              onInput={updateField}
+              value={formData.country}
+            />
           </fieldset>
           <fieldset>
             <legend>Credentials</legend>
