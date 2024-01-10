@@ -149,6 +149,7 @@ function UserManipulation(props: {
           <input
             type="text"
             name="userQuery"
+            id="userQuery"
             onChange={(e) => {
               setUserQuery(e.target.value);
             }}
