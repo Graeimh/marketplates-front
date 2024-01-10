@@ -146,11 +146,11 @@ function TagManipulationItem(props: {
           } ${formStyles.formContainer}
             `}
       >
-        <article>
-          <h2 className={formStyles.itemTitle}>
-            Tag :
-            <Tag customStyle={style} tagName={props.tag.name} isTiny={false} />
-          </h2>
+        <h2 className={formStyles.itemTitle}>
+          Tag :
+          <Tag customStyle={style} tagName={props.tag.name} isTiny={false} />
+        </h2>
+        <div>
           <button
             type="button"
             className={props.IsSelected ? itemStyles.primedButton : ""}
@@ -169,21 +169,17 @@ function TagManipulationItem(props: {
               <FontAwesomeIcon icon={solid("xmark")} /> Delete tag
             </button>
           </span>
-        </article>
+        </div>
         <form onSubmit={sendUpdateForm}>
-          <article>
-            <ul className={styles.tagEditor}>
-              <li>
-                <label htmlFor="tagName">Tag name : </label>
-                <input
-                  type="text"
-                  name="tagName"
-                  id="tagName"
-                  onInput={updateField}
-                  value={formData.tagName}
-                />
-              </li>
-            </ul>
+          <fieldset>
+            <label htmlFor="tagName">Tag name : </label>
+            <input
+              type="text"
+              name="tagName"
+              id="tagName"
+              onInput={updateField}
+              value={formData.tagName}
+            />
             <div className={styles.specificDataTagList}>
               <ul className={styles.tagEditor}>
                 <li className={styles.centeredTagEditorElement}>
@@ -226,8 +222,8 @@ function TagManipulationItem(props: {
                 </li>
               </ul>
             </div>
-          </article>
-          <article>
+          </fieldset>
+          <div>
             <ul>
               <li className={styles.centeredTagEditorElement}>
                 Before changes :
@@ -252,7 +248,7 @@ function TagManipulationItem(props: {
                 </>
               )}
             </ul>
-          </article>
+          </div>
           <div className={formStyles.finalButtonContainer}>
             <button type="submit" disabled={!validForUpdating}>
               Update tag
