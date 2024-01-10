@@ -139,7 +139,7 @@ function UserManipulation(props: {
         />
       </Helmet>
 
-      <section id={styles.manipulationContainer}>
+      <aside id={styles.manipulationContainer}>
         <h1>Manage users</h1>
         <article id={styles.searchBar}>
           <label htmlFor="userQuery">
@@ -175,12 +175,11 @@ function UserManipulation(props: {
             Select all ({userList.length}) users
           </button>
         </article>
-      </section>
-
-      <ul id={styles.manipulationItemContainer}>
-        {displayedUserList.length > 0 &&
-          displayedUserList.map((user) => (
-            <li>
+      </aside>
+      <main>
+        <article id={styles.manipulationItemContainer}>
+          {displayedUserList.length > 0 &&
+            displayedUserList.map((user) => (
               <UserManipulationItem
                 user={user}
                 uponDeletion={sendDeleteUserCall}
@@ -190,9 +189,9 @@ function UserManipulation(props: {
                 IsSelected={primedForDeletionList.indexOf(user._id) !== -1}
                 messageSetter={props.messageSetter}
               />
-            </li>
-          ))}
-      </ul>
+            ))}
+        </article>
+      </main>
     </>
   );
 }

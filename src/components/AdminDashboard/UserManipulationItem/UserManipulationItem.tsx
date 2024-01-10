@@ -149,8 +149,8 @@ function UserManipulationItem(props: {
           </span>
         </article>
         <form onSubmit={sendUpdateForm}>
-          <article className={formStyles.specificData}>
-            <h5>Personnal information</h5>
+          <fieldset className={formStyles.specificData}>
+            <legend>Personnal information</legend>
             <ul>
               <li>
                 <label htmlFor="firstName">First name : </label>
@@ -215,32 +215,26 @@ function UserManipulationItem(props: {
                 />
               </li>
             </ul>
-          </article>
-          <article>
-            <h5>Credentials</h5>
-            <ul>
-              <li>
-                <label htmlFor="displayName">Nickname : </label>
-                <input
-                  type="text"
-                  name="displayName"
-                  id="displayName"
-                  onInput={updateField}
-                  value={formData.displayName}
-                />
-              </li>
-              <li>
-                <label htmlFor="email">Email : </label>
-                <input
-                  type="email"
-                  name="email"
-                  id="email"
-                  onInput={updateField}
-                  value={formData.email}
-                />
-              </li>
-            </ul>
-          </article>
+          </fieldset>
+          <fieldset>
+            <legend>Credentials</legend>
+            <label htmlFor="displayName">Nickname : </label>
+            <input
+              type="text"
+              name="displayName"
+              id="displayName"
+              onInput={updateField}
+              value={formData.displayName}
+            />
+            <label htmlFor="email">Email : </label>
+            <input
+              type="email"
+              name="email"
+              id="email"
+              onInput={updateField}
+              value={formData.email}
+            />
+          </fieldset>
           <div className={formStyles.finalButtonContainer}>
             <button
               type="submit"
