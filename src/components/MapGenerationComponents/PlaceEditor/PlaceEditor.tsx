@@ -285,8 +285,8 @@ function PlaceEditor(props: {
         className={formStyles.formContainer}
         id={styles.placeRegisterContainer}
       >
-        <h1>Register a place</h1>
         <form>
+          <h1>Register a place</h1>
           <fieldset className={formStyles.specificData}>
             <legend>Name and description</legend>
             <label htmlFor="name">Name : </label>
