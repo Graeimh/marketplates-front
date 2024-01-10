@@ -6,7 +6,7 @@
   width: 100%;
 }
 
-#dashboardContainer nav {
+#dashboardContainer nav:first-of-type {
   position: fixed;
   bottom: 0;
   width: 100%;
@@ -91,7 +91,7 @@
 
 /* For tablets: */
 @media only screen and (min-width: 768px) {
-  #dashboardContainer nav {
+  #dashboardContainer nav:first-of-type {
     width: 6rem;
     height: 100%;
   }
@@ -149,7 +149,7 @@
     overflow: hidden;
   }
 
-  #dashboardContainer nav {
+  #dashboardContainer nav:first-of-type {
     position: fixed;
     top: 0;
     width: 100%;
