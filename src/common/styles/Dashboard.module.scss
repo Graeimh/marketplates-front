@@ -101,7 +101,7 @@
 }
 
 /* Navbar */
-#dashboardContainer nav:first-of-type {
+#dashboardContainer nav {
   position: fixed;
   bottom: 0;
   width: 100%;
@@ -181,7 +181,7 @@
     width: 20rem;
   }
 
-  #dashboardContainer nav:first-of-type {
+  #dashboardContainer nav {
     width: 8rem;
     height: 100%;
   }
@@ -237,7 +237,7 @@
     margin-right: 2rem;
   }
 
-  #dashboardPanel {
+  #dashboardPanel ul {
     display: grid;
     grid-template-columns: 22rem 22rem;
     width: 80%;
@@ -248,7 +248,7 @@
     overflow: hidden;
   }
 
-  #dashboardContainer nav:first-of-type {
+  #dashboardContainer nav {
     position: fixed;
     top: 0;
     width: 100%;
