@@ -154,32 +154,26 @@ function Register(props: { messageSetter: React.Dispatch<IMessageValues> }) {
       <section className={formStyles.formContainer}>
         <form onSubmit={sendRegistrationForm}>
           <h1>Register</h1>
-          <article className={formStyles.specificData}>
-            <h2>Personnal information</h2>
-            <ul>
-              <li>
-                <label htmlFor="firstName">First name</label>
-                <input
-                  type="text"
-                  name="firstName"
-                  id="firstName"
-                  required
-                  onInput={updateField}
-                  placeholder="First name"
-                />
-              </li>
-              <li>
-                <label htmlFor="lastName">Last name</label>
-                <input
-                  type="text"
-                  name="lastName"
-                  id="lastName"
-                  required
-                  onInput={updateField}
-                  placeholder="Last name"
-                />
-              </li>
-            </ul>
+          <fieldset className={formStyles.specificData}>
+            <legend>Personnal information</legend>
+            <label htmlFor="firstName">First name</label>
+            <input
+              type="text"
+              name="firstName"
+              id="firstName"
+              required
+              onInput={updateField}
+              placeholder="First name"
+            />
+            <label htmlFor="lastName">Last name</label>
+            <input
+              type="text"
+              name="lastName"
+              id="lastName"
+              required
+              onInput={updateField}
+              placeholder="Last name"
+            />
             <div>
               <label htmlFor="streetAddress">Street address</label>
               <input
@@ -191,44 +185,36 @@ function Register(props: { messageSetter: React.Dispatch<IMessageValues> }) {
                 placeholder="Street address"
               />
             </div>
-            <ul>
-              <li>
-                <label htmlFor="county">County</label>
-                <input
-                  type="text"
-                  name="county"
-                  id="county"
-                  required
-                  onInput={updateField}
-                  placeholder="County"
-                />
-              </li>
-              <li>
-                <label htmlFor="city">City</label>
-                <input
-                  type="text"
-                  name="city"
-                  id="city"
-                  required
-                  onInput={updateField}
-                  placeholder="City"
-                />
-              </li>
-              <li>
-                <label htmlFor="country">Country</label>
-                <input
-                  type="text"
-                  name="country"
-                  id="country"
-                  required
-                  onInput={updateField}
-                  placeholder="Country"
-                />
-              </li>
-            </ul>
-          </article>
-          <article>
-            <h2>Credentials</h2>
+            <label htmlFor="county">County</label>
+            <input
+              type="text"
+              name="county"
+              id="county"
+              required
+              onInput={updateField}
+              placeholder="County"
+            />
+            <label htmlFor="city">City</label>
+            <input
+              type="text"
+              name="city"
+              id="city"
+              required
+              onInput={updateField}
+              placeholder="City"
+            />
+            <label htmlFor="country">Country</label>
+            <input
+              type="text"
+              name="country"
+              id="country"
+              required
+              onInput={updateField}
+              placeholder="Country"
+            />
+          </fieldset>
+          <fieldset className={formStyles.specificData}>
+            <legend>Credentials</legend>
             <ul>
               <li>
                 <label htmlFor="displayName">Nickname</label>
@@ -376,7 +362,7 @@ function Register(props: { messageSetter: React.Dispatch<IMessageValues> }) {
                 />
               </li>
             </ul>
-          </article>
+          </fieldset>{" "}
           <div className={formStyles.finalButtonContainer}>
             <button
               type="submit"
