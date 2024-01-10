@@ -281,232 +281,227 @@ function PlaceEditor(props: {
         </Helmet>
       )}
 
-      <section
+      <main
         className={formStyles.formContainer}
         id={styles.placeRegisterContainer}
       >
-        <article>
-          <form>
-            <ul>
-              <h1>Register a place</h1>
-              <li>
-                <label htmlFor="name">Name : </label>
-                <input
-                  type="text"
-                  name="name"
-                  required
-                  onInput={updateField}
-                  value={formData.name}
-                />
-              </li>
-              <li>
-                <label htmlFor="description">Description : </label>
-                <input
-                  type="text"
-                  name="description"
-                  required
-                  onInput={updateField}
-                  value={formData.description}
-                />
-              </li>
-              <li>Locate your place</li>
-              <li id={styles.phoneMapContainer} aria-label="Map">
-                <MapContainer
-                  style={{ height: "30rem", width: "100%" }}
-                  center={{ lat: 50.633333, lng: 3.066667 }}
-                  zoom={13}
-                  maxZoom={18}
-                >
-                  <MapValuesManager
-                    latitude={
-                      formData.gpsCoordinates.latitude !== null
-                        ? formData.gpsCoordinates.latitude
-                        : 50.633333
-                    }
-                    longitude={
-                      formData.gpsCoordinates.longitude !== null
-                        ? formData.gpsCoordinates.longitude
-                        : 3.066667
-                    }
-                    startingZoom={5}
-                    doubleClickEvent={doubleClickMaphandler}
-                  />
-                  <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
+        <h1>Register a place</h1>
+        <form>
+          <fieldset className={formStyles.specificData}>
+            <legend>Name and description</legend>
+            <label htmlFor="name">Name : </label>
+            <input
+              type="text"
+              name="name"
+              required
+              onInput={updateField}
+              value={formData.name}
+            />
 
-                  {formData.gpsCoordinates.latitude !== null &&
-                    formData.gpsCoordinates.longitude !== null && (
-                      <Marker
-                        icon={mapMarkerIcon}
-                        position={[
-                          formData.gpsCoordinates.latitude,
-                          formData.gpsCoordinates.longitude,
-                        ]}
-                      >
-                        <Popup>
-                          <h3>{formData.name}</h3>
-                          <p>{formData.description}</p>
-                          <ul>
-                            {formData.tagList.map((tag) => (
-                              <li>
-                                <Tag
-                                  tagName={tag.name}
-                                  customStyle={{
-                                    color: tag.nameColor,
-                                    backgroundColor: tag.backgroundColor,
-                                  }}
-                                  isTiny={true}
-                                />
-                              </li>
-                            ))}
-                          </ul>
-                        </Popup>
-                      </Marker>
-                    )}
-                </MapContainer>
-              </li>
-              <li>
-                <label htmlFor="address">Address : </label>
-                <input
-                  type="text"
-                  name="address"
-                  onInput={updateField}
-                  value={formData.address}
+            <label htmlFor="description">Description : </label>
+            <input
+              type="text"
+              name="description"
+              required
+              onInput={updateField}
+              value={formData.description}
+            />
+          </fieldset>
+          <fieldset>
+            <legend>Locate your place</legend>
+
+            <div id={styles.phoneMapContainer} aria-label="Map">
+              <MapContainer
+                style={{ height: "30rem", width: "100%" }}
+                center={{ lat: 50.633333, lng: 3.066667 }}
+                zoom={13}
+                maxZoom={18}
+              >
+                <MapValuesManager
+                  latitude={
+                    formData.gpsCoordinates.latitude !== null
+                      ? formData.gpsCoordinates.latitude
+                      : 50.633333
+                  }
+                  longitude={
+                    formData.gpsCoordinates.longitude !== null
+                      ? formData.gpsCoordinates.longitude
+                      : 3.066667
+                  }
+                  startingZoom={5}
+                  doubleClickEvent={doubleClickMaphandler}
                 />
-              </li>
-              <li className={styles.secondaryButton}>
-                <button type="button" onClick={handleAdressButton}>
-                  Get locations
-                </button>
-              </li>
-              {newResults.length > 1 && (
-                <>
-                  <li>Select a result:</li>
-                  <ul className={formStyles.addressClickables}>
-                    {newResults.map((result) => (
-                      <li
-                        onClick={() => {
-                          setFormData({
-                            ...formData,
-                            address: result.label,
-                            gpsCoordinates: {
-                              longitude: result.x,
-                              latitude: result.y,
-                            },
-                          });
-                          setTemporaryCoordinates({
+                <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
+
+                {formData.gpsCoordinates.latitude !== null &&
+                  formData.gpsCoordinates.longitude !== null && (
+                    <Marker
+                      icon={mapMarkerIcon}
+                      position={[
+                        formData.gpsCoordinates.latitude,
+                        formData.gpsCoordinates.longitude,
+                      ]}
+                    >
+                      <Popup>
+                        <h3>{formData.name}</h3>
+                        <p>{formData.description}</p>
+                        <ul>
+                          {formData.tagList.map((tag) => (
+                            <li>
+                              <Tag
+                                tagName={tag.name}
+                                customStyle={{
+                                  color: tag.nameColor,
+                                  backgroundColor: tag.backgroundColor,
+                                }}
+                                isTiny={true}
+                              />
+                            </li>
+                          ))}
+                        </ul>
+                      </Popup>
+                    </Marker>
+                  )}
+              </MapContainer>
+            </div>
+            <label htmlFor="address">Address : </label>
+            <input
+              type="text"
+              name="address"
+              onInput={updateField}
+              value={formData.address}
+            />
+            <div className={styles.secondaryButton}>
+              <button type="button" onClick={handleAdressButton}>
+                Get locations
+              </button>
+            </div>
+            {newResults.length > 1 && (
+              <>
+                Select a result:
+                <ul className={formStyles.addressClickables}>
+                  {newResults.map((result) => (
+                    <li
+                      onClick={() => {
+                        setFormData({
+                          ...formData,
+                          address: result.label,
+                          gpsCoordinates: {
                             longitude: result.x,
                             latitude: result.y,
-                          });
-                          setNewResults([]);
-                        }}
-                      >
-                        {result.label}
-                      </li>
-                    ))}
-                  </ul>
-                </>
-              )}
-              <li>Off the grid? Write the coordinates here!</li>
-              <li>
-                <label htmlFor="latitude">Latitude : </label>
-                <input
-                  type="number"
-                  name="latitude"
-                  min="-90"
-                  max="90"
-                  onChange={(e) => {
-                    setTemporaryCoordinates({
-                      ...temporaryCoordinates,
-                      latitude: Number(e.target.value),
+                          },
+                        });
+                        setTemporaryCoordinates({
+                          longitude: result.x,
+                          latitude: result.y,
+                        });
+                        setNewResults([]);
+                      }}
+                    >
+                      {result.label}
+                    </li>
+                  ))}
+                </ul>
+              </>
+            )}
+            <fieldset>
+              <legend>Off the grid? Write the coordinates here!</legend>
+              <label htmlFor="latitude">Latitude : </label>
+              <input
+                type="number"
+                name="latitude"
+                min="-90"
+                max="90"
+                onChange={(e) => {
+                  setTemporaryCoordinates({
+                    ...temporaryCoordinates,
+                    latitude: Number(e.target.value),
+                  });
+                }}
+                value={temporaryCoordinates.latitude?.toString()}
+              />
+              <label htmlFor="longitude">Longitude : </label>
+              <input
+                type="number"
+                name="longitude"
+                min="-180"
+                max="180"
+                onChange={(e) =>
+                  setTemporaryCoordinates({
+                    ...temporaryCoordinates,
+                    longitude: Number(e.target.value),
+                  })
+                }
+                value={temporaryCoordinates.longitude?.toString()}
+              />
+            </fieldset>
+            <div className={styles.secondaryButton}>
+              <button type="button" onClick={handleManualCoordinates}>
+                Use coordinates instead!
+              </button>
+            </div>
+          </fieldset>
+          <fieldset>
+            <legend>Tags</legend>
+
+            <label htmlFor="tagQuery">Search for a tag : </label>
+            <input
+              type="text"
+              name="tagQuery"
+              onChange={(e) => {
+                setTagQuery(e.target.value);
+              }}
+            />
+            <span>Select tags:</span>
+            {tagListToDisplay.length > 0 &&
+              tagListToDisplay.map((tag) => (
+                <Tag
+                  customStyle={{
+                    color: tag.nameColor,
+                    backgroundColor: tag.backgroundColor,
+                  }}
+                  tagName={tag.name}
+                  onClick={() => {
+                    setFormData({
+                      ...formData,
+                      tagList: [...formData.tagList, tag],
                     });
+                    setTagList(
+                      tagList.filter((tagId) => tagId._id !== tag._id)
+                    );
                   }}
-                  value={temporaryCoordinates.latitude?.toString()}
+                  isIn={formData.tagList.some(
+                    (tagData) => tagData._id === tag._id
+                  )}
+                  isTiny={false}
+                  key={tag.name}
                 />
-              </li>
-              <li>
-                <label htmlFor="longitude">Longitude : </label>
-                <input
-                  type="number"
-                  name="longitude"
-                  min="-180"
-                  max="180"
-                  onChange={(e) =>
-                    setTemporaryCoordinates({
-                      ...temporaryCoordinates,
-                      longitude: Number(e.target.value),
-                    })
-                  }
-                  value={temporaryCoordinates.longitude?.toString()}
-                />
-              </li>
-              <li className={styles.secondaryButton}>
-                <button type="button" onClick={handleManualCoordinates}>
-                  Use coordinates instead!
-                </button>
-              </li>
-
-              <li>
-                <label htmlFor="tagQuery">Search for a tag : </label>
-                <input
-                  type="text"
-                  name="tagQuery"
-                  onChange={(e) => {
-                    setTagQuery(e.target.value);
+              ))}
+            {formData.tagList.length > 0 && <span>Selected tags :</span>}
+            {formData.tagList.length > 0 &&
+              formData.tagList.map((tag) => (
+                <Tag
+                  customStyle={{
+                    color: tag.nameColor,
+                    backgroundColor: tag.backgroundColor,
                   }}
+                  tagName={tag.name}
+                  onClose={() => {
+                    setFormData({
+                      ...formData,
+                      tagList: formData.tagList.filter(
+                        (tagId) => tagId._id !== tag._id
+                      ),
+                    });
+                    setTagList([...tagList, tag]);
+                  }}
+                  isIn={formData.tagList.some(
+                    (tagData) => tagData._id === tag._id
+                  )}
+                  isTiny={false}
+                  key={tag.name}
                 />
-              </li>
-
-              <p>Select tags:</p>
-              {tagListToDisplay.length > 0 &&
-                tagListToDisplay.map((tag) => (
-                  <Tag
-                    customStyle={{
-                      color: tag.nameColor,
-                      backgroundColor: tag.backgroundColor,
-                    }}
-                    tagName={tag.name}
-                    onClick={() => {
-                      setFormData({
-                        ...formData,
-                        tagList: [...formData.tagList, tag],
-                      });
-                      setTagList(
-                        tagList.filter((tagId) => tagId._id !== tag._id)
-                      );
-                    }}
-                    isIn={formData.tagList.some(
-                      (tagData) => tagData._id === tag._id
-                    )}
-                    isTiny={false}
-                    key={tag.name}
-                  />
-                ))}
-              {formData.tagList.length > 0 && <li>Selected tags :</li>}
-              {formData.tagList.length > 0 &&
-                formData.tagList.map((tag) => (
-                  <Tag
-                    customStyle={{
-                      color: tag.nameColor,
-                      backgroundColor: tag.backgroundColor,
-                    }}
-                    tagName={tag.name}
-                    onClose={() => {
-                      setFormData({
-                        ...formData,
-                        tagList: formData.tagList.filter(
-                          (tagId) => tagId._id !== tag._id
-                        ),
-                      });
-                      setTagList([...tagList, tag]);
-                    }}
-                    isIn={formData.tagList.some(
-                      (tagData) => tagData._id === tag._id
-                    )}
-                    isTiny={false}
-                    key={tag.name}
-                  />
-                ))}
-            </ul>
+              ))}
             <div className={formStyles.finalButtonContainer}>
               <button
                 type="button"
@@ -518,9 +513,9 @@ function PlaceEditor(props: {
                   : "Edit place"}
               </button>
             </div>
-          </form>
-        </article>
-        <article id={styles.mapDesktopContainer} aria-label="Map">
+          </fieldset>
+        </form>
+        <aside id={styles.mapDesktopContainer} aria-label="Map">
           <MapContainer
             style={{ height: "100%", width: "100%" }}
             center={{ lat: 50.633333, lng: 3.066667 }}
@@ -553,7 +548,7 @@ function PlaceEditor(props: {
                   ]}
                 >
                   <Popup>
-                    <h3>{formData.name}</h3>
+                    <h2>{formData.name}</h2>
                     <p>{formData.description}</p>
                     <ul>
                       {formData.tagList.map((tag) => (
@@ -573,8 +568,8 @@ function PlaceEditor(props: {
                 </Marker>
               )}
           </MapContainer>
-        </article>
-      </section>
+        </aside>
+      </main>
     </>
   );
 }
