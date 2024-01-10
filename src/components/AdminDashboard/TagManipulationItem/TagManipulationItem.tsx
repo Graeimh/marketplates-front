@@ -146,10 +146,8 @@ function TagManipulationItem(props: {
           } ${formStyles.formContainer}
             `}
       >
-        <h2 className={formStyles.itemTitle}>
-          Tag :
-          <Tag customStyle={style} tagName={props.tag.name} isTiny={false} />
-        </h2>
+        <h2 className={formStyles.itemTitle}>Tag :</h2>
+        <Tag customStyle={style} tagName={props.tag.name} isTiny={false} />
         <div>
           <button
             type="button"
@@ -172,11 +170,11 @@ function TagManipulationItem(props: {
         </div>
         <form onSubmit={sendUpdateForm}>
           <fieldset>
-            <label htmlFor="tagName">Tag name : </label>
+            <label htmlFor={`tagName${formData.tagName}`}>Tag name : </label>
             <input
               type="text"
               name="tagName"
-              id="tagName"
+              id={`tagName${formData.tagName}`}
               onInput={updateField}
               value={formData.tagName}
             />
@@ -192,13 +190,15 @@ function TagManipulationItem(props: {
                       style={{ margin: "auto" }}
                     />
                   </div>
-                  <label htmlFor="tagBackgroundColor">
+                  <label
+                    htmlFor={`tagBackgroundColor${formData.tagBackgroundColor}`}
+                  >
                     Background Color :{" "}
                   </label>
                   <input
                     type="text"
                     name="tagBackgroundColor"
-                    id="tagBackgroundColor"
+                    id={`tagBackgroundColor${formData.tagBackgroundColor}`}
                     onInput={updateField}
                     value={formData.tagBackgroundColor}
                   />
@@ -211,11 +211,13 @@ function TagManipulationItem(props: {
                     }
                     style={{ margin: "auto" }}
                   />
-                  <label htmlFor="tagNameColor">Name Color : </label>
+                  <label htmlFor={`tagNameColor${formData.tagNameColor}`}>
+                    Name Color :{" "}
+                  </label>
                   <input
                     type="text"
                     name="tagNameColor"
-                    id="tagNameColor"
+                    id={`tagNameColor${formData.tagNameColor}`}
                     onInput={updateField}
                     value={formData.tagNameColor}
                   />
