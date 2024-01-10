@@ -369,17 +369,15 @@ function TagManipulation(props: {
         <article id={manipulationStyles.manipulationItemContainer}>
           {displayedTagList.length > 0 &&
             displayedTagList.map((tag) => (
-              <li>
-                <TagManipulationItem
-                  tag={tag}
-                  primeForDeletion={manageDeletionList}
-                  uponDeletion={sendDeleteTagCall}
-                  refetch={getAllTags}
-                  key={tag._id}
-                  IsSelected={primedForDeletionList.indexOf(tag._id) !== -1}
-                  messageSetter={props.messageSetter}
-                />
-              </li>
+              <TagManipulationItem
+                tag={tag}
+                primeForDeletion={manageDeletionList}
+                uponDeletion={sendDeleteTagCall}
+                refetch={getAllTags}
+                key={tag._id}
+                IsSelected={primedForDeletionList.indexOf(tag._id) !== -1}
+                messageSetter={props.messageSetter}
+              />
             ))}
         </article>
       </main>
