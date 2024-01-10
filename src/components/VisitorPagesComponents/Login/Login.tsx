@@ -138,56 +138,54 @@ function Login(props: {
         ></script>
       </Helmet>
 
-      <section className={formStyles.formContainer}>
+      <main className={formStyles.formContainer}>
         <form onSubmit={sendLoginForm}>
           <h1>Sign in</h1>
-          <ul>
-            <li>
-              <label htmlFor="email">Email</label>
-              <input
-                type="text"
-                name="email"
-                id="email"
-                required
-                onInput={updateField}
-                placeholder="Email"
-              />
-            </li>
-            <li>
-              <label htmlFor="password">Password</label>
-              <input
-                type="password"
-                name="password"
-                id="password"
-                required
-                onInput={updateField}
-                placeholder="Password"
-              />
-            </li>
-          </ul>
-          <ReCAPTCHA
-            sitekey={import.meta.env.VITE_REACT_APP_GOOGLE_SITE_KEY}
-            ref={captcha}
-            id={styles.captchaContainer}
-            style={{
-              transform: "scale(0.77)",
-            }}
-          />
-          <div className={formStyles.finalButtonContainer}>
-            <button type="submit" disabled={!validForSending}>
-              Log in
-            </button>
-          </div>
+          <fieldset>
+            <legend>Enter your credentials here</legend>
+            <label htmlFor="email">Email</label>
+            <input
+              type="text"
+              name="email"
+              id="email"
+              required
+              onInput={updateField}
+              placeholder="Email"
+            />
 
-          <span id={styles.registerAlternative}>Don't have an account?</span>
+            <label htmlFor="password">Password</label>
+            <input
+              type="password"
+              name="password"
+              id="password"
+              required
+              onInput={updateField}
+              placeholder="Password"
+            />
+            <ReCAPTCHA
+              sitekey={import.meta.env.VITE_REACT_APP_GOOGLE_SITE_KEY}
+              ref={captcha}
+              id={styles.captchaContainer}
+              style={{
+                transform: "scale(0.77)",
+              }}
+            />
+            <div className={formStyles.finalButtonContainer}>
+              <button type="submit" disabled={!validForSending}>
+                Log in
+              </button>
+            </div>
 
-          <div id={styles.registerButtonContainer}>
-            <button type="button" onClick={() => navigate("/register")}>
-              Register
-            </button>
-          </div>
+            <span id={styles.registerAlternative}>Don't have an account?</span>
+
+            <div id={styles.registerButtonContainer}>
+              <button type="button" onClick={() => navigate("/register")}>
+                Register
+              </button>
+            </div>
+          </fieldset>
         </form>
-      </section>
+      </main>
     </>
   );
 }
