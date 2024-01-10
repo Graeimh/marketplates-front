@@ -290,6 +290,7 @@ function PlaceEditor(props: {
               <input
                 type="text"
                 name="name"
+                id="name"
                 required
                 onInput={updateField}
                 value={formData.name}
@@ -299,6 +300,7 @@ function PlaceEditor(props: {
               <input
                 type="text"
                 name="description"
+                id="description"
                 required
                 onInput={updateField}
                 value={formData.description}
@@ -365,6 +367,7 @@ function PlaceEditor(props: {
               <input
                 type="text"
                 name="address"
+                id="address"
                 onInput={updateField}
                 value={formData.address}
               />
@@ -407,6 +410,7 @@ function PlaceEditor(props: {
                 <input
                   type="number"
                   name="latitude"
+                  id="latitude"
                   min="-90"
                   max="90"
                   onChange={(e) => {
@@ -421,6 +425,7 @@ function PlaceEditor(props: {
                 <input
                   type="number"
                   name="longitude"
+                  id="longitude"
                   min="-180"
                   max="180"
                   onChange={(e) =>
@@ -445,6 +450,7 @@ function PlaceEditor(props: {
               <input
                 type="text"
                 name="tagQuery"
+                id="tagQuery"
                 onChange={(e) => {
                   setTagQuery(e.target.value);
                 }}
