@@ -124,35 +124,30 @@ function EditProfile(props: {
         />
       </Helmet>
 
-      <h2>Edit profile</h2>
-      <section className={formStyles.formContainer} id={styles.userEditForm}>
+      <main className={formStyles.formContainer} id={styles.userEditForm}>
+        <h1>Edit profile</h1>
         <form onSubmit={sendEditUserForm}>
-          <article className={formStyles.specificData}>
-            <h3>Personnal information</h3>
-            <ul>
-              <li>
-                <label htmlFor="firstName">First name</label>
-                <input
-                  type="text"
-                  name="firstName"
-                  id="firstName"
-                  required
-                  onInput={updateField}
-                  value={formData.firstName}
-                />
-              </li>
-              <li>
-                <label htmlFor="lastName">Last name</label>
-                <input
-                  type="text"
-                  name="lastName"
-                  id="lastName"
-                  required
-                  onInput={updateField}
-                  value={formData.lastName}
-                />
-              </li>
-            </ul>
+          <fieldset className={formStyles.specificData}>
+            <legend>Personnal information</legend>
+
+            <label htmlFor="firstName">First name</label>
+            <input
+              type="text"
+              name="firstName"
+              id="firstName"
+              required
+              onInput={updateField}
+              value={formData.firstName}
+            />
+            <label htmlFor="lastName">Last name</label>
+            <input
+              type="text"
+              name="lastName"
+              id="lastName"
+              required
+              onInput={updateField}
+              value={formData.lastName}
+            />
             <div>
               <label htmlFor="streetAddress">Street address</label>
               <input
@@ -163,74 +158,61 @@ function EditProfile(props: {
                 value={formData.streetAddress}
               />
             </div>
-            <ul>
-              <li>
-                <label htmlFor="county">County</label>
-                <input
-                  type="text"
-                  name="county"
-                  id="county"
-                  onInput={updateField}
-                  value={formData.county}
-                />
-              </li>
-              <li>
-                <label htmlFor="city">City</label>
-                <input
-                  type="text"
-                  name="city"
-                  id="city"
-                  onInput={updateField}
-                  value={formData.city}
-                />
-              </li>
-              <li>
-                <label htmlFor="country">Country</label>
-                <input
-                  type="text"
-                  name="country"
-                  id="country"
-                  required
-                  onInput={updateField}
-                  value={formData.country}
-                />
-              </li>
-            </ul>
-          </article>
-          <article>
-            <h3>Credentials</h3>
-            <ul>
-              <li>
-                <label htmlFor="displayName">Nickname</label>
-                <input
-                  type="text"
-                  name="displayName"
-                  id="displayName"
-                  required
-                  onInput={updateField}
-                  value={formData.displayName}
-                />
-              </li>
-              <li>
-                <label htmlFor="email">Email</label>
-                <input
-                  type="email"
-                  name="email"
-                  id="email"
-                  required
-                  onInput={updateField}
-                  value={formData.email}
-                />
-              </li>
-            </ul>
-          </article>
+            <label htmlFor="county">County</label>
+            <input
+              type="text"
+              name="county"
+              id="county"
+              onInput={updateField}
+              value={formData.county}
+            />
+            <label htmlFor="city">City</label>
+            <input
+              type="text"
+              name="city"
+              id="city"
+              onInput={updateField}
+              value={formData.city}
+            />
+            <label htmlFor="country">Country</label>
+            <input
+              type="text"
+              name="country"
+              id="country"
+              required
+              onInput={updateField}
+              value={formData.country}
+            />
+          </fieldset>
+          <fieldset>
+            <legend>Credentials</legend>
+            <label htmlFor="displayName">Nickname</label>
+            <input
+              type="text"
+              name="displayName"
+              id="displayName"
+              required
+              onInput={updateField}
+              value={formData.displayName}
+            />
+
+            <label htmlFor="email">Email</label>
+            <input
+              type="email"
+              name="email"
+              id="email"
+              required
+              onInput={updateField}
+              value={formData.email}
+            />
+          </fieldset>
           <div className={formStyles.finalButtonContainer}>
             <button type="submit" disabled={!validForSending}>
               Edit my profile
             </button>
           </div>
         </form>
-      </section>
+      </main>
     </>
   );
 }
