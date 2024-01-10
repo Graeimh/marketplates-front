@@ -515,61 +515,61 @@ function PlaceEditor(props: {
             </div>
           </fieldset>
         </form>
-        <aside id={styles.mapDesktopContainer} aria-label="Map">
-          <MapContainer
-            style={{ height: "100%", width: "100%" }}
-            center={{ lat: 50.633333, lng: 3.066667 }}
-            zoom={13}
-            maxZoom={18}
-          >
-            <MapValuesManager
-              latitude={
-                formData.gpsCoordinates.latitude !== null
-                  ? formData.gpsCoordinates.latitude
-                  : 50.633333
-              }
-              longitude={
-                formData.gpsCoordinates.longitude !== null
-                  ? formData.gpsCoordinates.longitude
-                  : 3.066667
-              }
-              startingZoom={13}
-              doubleClickEvent={doubleClickMaphandler}
-            />
-            <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
-
-            {formData.gpsCoordinates.latitude !== null &&
-              formData.gpsCoordinates.longitude !== null && (
-                <Marker
-                  icon={mapMarkerIcon}
-                  position={[
-                    formData.gpsCoordinates.latitude,
-                    formData.gpsCoordinates.longitude,
-                  ]}
-                >
-                  <Popup>
-                    <h2>{formData.name}</h2>
-                    <p>{formData.description}</p>
-                    <ul>
-                      {formData.tagList.map((tag) => (
-                        <li>
-                          <Tag
-                            tagName={tag.name}
-                            customStyle={{
-                              color: tag.nameColor,
-                              backgroundColor: tag.backgroundColor,
-                            }}
-                            isTiny={true}
-                          />
-                        </li>
-                      ))}
-                    </ul>
-                  </Popup>
-                </Marker>
-              )}
-          </MapContainer>
-        </aside>
       </main>
+      <aside id={styles.mapDesktopContainer} aria-label="Map">
+        <MapContainer
+          style={{ height: "100%", width: "100%" }}
+          center={{ lat: 50.633333, lng: 3.066667 }}
+          zoom={13}
+          maxZoom={18}
+        >
+          <MapValuesManager
+            latitude={
+              formData.gpsCoordinates.latitude !== null
+                ? formData.gpsCoordinates.latitude
+                : 50.633333
+            }
+            longitude={
+              formData.gpsCoordinates.longitude !== null
+                ? formData.gpsCoordinates.longitude
+                : 3.066667
+            }
+            startingZoom={13}
+            doubleClickEvent={doubleClickMaphandler}
+          />
+          <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
+
+          {formData.gpsCoordinates.latitude !== null &&
+            formData.gpsCoordinates.longitude !== null && (
+              <Marker
+                icon={mapMarkerIcon}
+                position={[
+                  formData.gpsCoordinates.latitude,
+                  formData.gpsCoordinates.longitude,
+                ]}
+              >
+                <Popup>
+                  <h3>{formData.name}</h3>
+                  <p>{formData.description}</p>
+                  <ul>
+                    {formData.tagList.map((tag) => (
+                      <li>
+                        <Tag
+                          tagName={tag.name}
+                          customStyle={{
+                            color: tag.nameColor,
+                            backgroundColor: tag.backgroundColor,
+                          }}
+                          isTiny={true}
+                        />
+                      </li>
+                    ))}
+                  </ul>
+                </Popup>
+              </Marker>
+            )}
+        </MapContainer>
+      </aside>
     </>
   );
 }
