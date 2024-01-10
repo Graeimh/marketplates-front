@@ -151,7 +151,7 @@ function Register(props: { messageSetter: React.Dispatch<IMessageValues> }) {
         />
       </Helmet>
 
-      <section className={formStyles.formContainer}>
+      <main className={formStyles.formContainer}>
         <form onSubmit={sendRegistrationForm}>
           <h1>Register</h1>
           <fieldset className={formStyles.specificData}>
@@ -215,154 +215,144 @@ function Register(props: { messageSetter: React.Dispatch<IMessageValues> }) {
           </fieldset>
           <fieldset className={formStyles.specificData}>
             <legend>Credentials</legend>
-            <ul>
-              <li>
-                <label htmlFor="displayName">Nickname</label>
-                <input
-                  type="text"
-                  name="displayName"
-                  id="displayName"
-                  required
-                  onInput={updateField}
-                  placeholder="Nickname"
-                />
-              </li>
-              <li>
-                <label htmlFor="email">Email</label>
-                <input
-                  type="email"
-                  name="email"
-                  id="email"
-                  required
-                  onInput={updateField}
-                  placeholder="Email"
-                />
-              </li>
-              <li>
-                <div className={styles.toolTip}>
-                  <label htmlFor="password">Password</label>
-                  <input
-                    type={passwordVisibility}
-                    name="password"
-                    id="password"
-                    required
-                    onInput={updateField}
-                    placeholder="Password"
-                  />
-                  <FontAwesomeIcon
-                    icon={
-                      passwordVisibility === "password"
-                        ? regular("eye")
-                        : regular("eye-slash")
+            <label htmlFor="displayName">Nickname</label>
+            <input
+              type="text"
+              name="displayName"
+              id="displayName"
+              required
+              onInput={updateField}
+              placeholder="Nickname"
+            />
+            <label htmlFor="email">Email</label>
+            <input
+              type="email"
+              name="email"
+              id="email"
+              required
+              onInput={updateField}
+              placeholder="Email"
+            />
+            <div className={styles.toolTip}>
+              <label htmlFor="password">Password</label>
+              <input
+                type={passwordVisibility}
+                name="password"
+                id="password"
+                required
+                onInput={updateField}
+                placeholder="Password"
+              />
+              <FontAwesomeIcon
+                icon={
+                  passwordVisibility === "password"
+                    ? regular("eye")
+                    : regular("eye-slash")
+                }
+                id={
+                  passwordVisibility === "password"
+                    ? styles.passwordReveal
+                    : styles.passwordRevealHidden
+                }
+                onMouseDown={() => {
+                  setPasswordVisibility("text");
+                }}
+                onMouseUp={() => {
+                  setPasswordVisibility("password");
+                }}
+                onMouseLeave={() => {
+                  setPasswordVisibility("password");
+                }}
+              />
+              <div
+                className={styles.toolTipValues}
+                aria-label="Password tooltip"
+              >
+                Your password :
+                <ul>
+                  <li
+                    className={
+                      formData.password.length >= 12
+                        ? styles.correctFieldValues
+                        : styles.incorrectFieldValues
                     }
-                    id={
-                      passwordVisibility === "password"
-                        ? styles.passwordReveal
-                        : styles.passwordRevealHidden
-                    }
-                    onMouseDown={() => {
-                      setPasswordVisibility("text");
-                    }}
-                    onMouseUp={() => {
-                      setPasswordVisibility("password");
-                    }}
-                    onMouseLeave={() => {
-                      setPasswordVisibility("password");
-                    }}
-                  />
-                  <div
-                    className={styles.toolTipValues}
-                    aria-label="Password tooltip"
                   >
-                    Your password :
-                    <ul>
-                      <li
-                        className={
-                          formData.password.length >= 12
-                            ? styles.correctFieldValues
-                            : styles.incorrectFieldValues
-                        }
-                      >
-                        {formData.password.length >= 12 ? (
-                          <FontAwesomeIcon icon={regular("circle-check")} />
-                        ) : (
-                          <FontAwesomeIcon icon={solid("xmark")} />
-                        )}{" "}
-                        Must be at least 12 characters
-                      </li>
-                      <li
-                        className={
-                          /[A-Z]/.test(formData.password)
-                            ? styles.correctFieldValues
-                            : styles.incorrectFieldValues
-                        }
-                      >
-                        {/[A-Z]/.test(formData.password) ? (
-                          <FontAwesomeIcon icon={regular("circle-check")} />
-                        ) : (
-                          <FontAwesomeIcon icon={solid("xmark")} />
-                        )}{" "}
-                        Must contain at least one upper case letter
-                      </li>
-                      <li
-                        className={
-                          /[a-z]/.test(formData.password)
-                            ? styles.correctFieldValues
-                            : styles.incorrectFieldValues
-                        }
-                      >
-                        {/[a-z]/.test(formData.password) ? (
-                          <FontAwesomeIcon icon={regular("circle-check")} />
-                        ) : (
-                          <FontAwesomeIcon icon={solid("xmark")} />
-                        )}{" "}
-                        Must contain at least one lower case letter
-                      </li>
-                      <li
-                        className={
-                          /[0-9]/.test(formData.password)
-                            ? styles.correctFieldValues
-                            : styles.incorrectFieldValues
-                        }
-                      >
-                        {/[0-9]/.test(formData.password) ? (
-                          <FontAwesomeIcon icon={regular("circle-check")} />
-                        ) : (
-                          <FontAwesomeIcon icon={solid("xmark")} />
-                        )}{" "}
-                        Must contain at least one digit
-                      </li>
-                      <li
-                        className={
-                          /[^A-Za-z0-9]/.test(formData.password)
-                            ? styles.correctFieldValues
-                            : styles.incorrectFieldValues
-                        }
-                      >
-                        {/[^A-Za-z0-9]/.test(formData.password) ? (
-                          <FontAwesomeIcon icon={regular("circle-check")} />
-                        ) : (
-                          <FontAwesomeIcon icon={solid("xmark")} />
-                        )}{" "}
-                        Must contain at least one special character (",*$£...)
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </li>
-              <li>
-                <label htmlFor="passwordMatch">Confirm password</label>
-                <input
-                  type="password"
-                  name="passwordMatch"
-                  id="passwordMatch"
-                  required
-                  onInput={updateField}
-                  placeholder="Write your password again here"
-                />
-              </li>
-            </ul>
-          </fieldset>{" "}
+                    {formData.password.length >= 12 ? (
+                      <FontAwesomeIcon icon={regular("circle-check")} />
+                    ) : (
+                      <FontAwesomeIcon icon={solid("xmark")} />
+                    )}{" "}
+                    Must be at least 12 characters
+                  </li>
+                  <li
+                    className={
+                      /[A-Z]/.test(formData.password)
+                        ? styles.correctFieldValues
+                        : styles.incorrectFieldValues
+                    }
+                  >
+                    {/[A-Z]/.test(formData.password) ? (
+                      <FontAwesomeIcon icon={regular("circle-check")} />
+                    ) : (
+                      <FontAwesomeIcon icon={solid("xmark")} />
+                    )}{" "}
+                    Must contain at least one upper case letter
+                  </li>
+                  <li
+                    className={
+                      /[a-z]/.test(formData.password)
+                        ? styles.correctFieldValues
+                        : styles.incorrectFieldValues
+                    }
+                  >
+                    {/[a-z]/.test(formData.password) ? (
+                      <FontAwesomeIcon icon={regular("circle-check")} />
+                    ) : (
+                      <FontAwesomeIcon icon={solid("xmark")} />
+                    )}{" "}
+                    Must contain at least one lower case letter
+                  </li>
+                  <li
+                    className={
+                      /[0-9]/.test(formData.password)
+                        ? styles.correctFieldValues
+                        : styles.incorrectFieldValues
+                    }
+                  >
+                    {/[0-9]/.test(formData.password) ? (
+                      <FontAwesomeIcon icon={regular("circle-check")} />
+                    ) : (
+                      <FontAwesomeIcon icon={solid("xmark")} />
+                    )}{" "}
+                    Must contain at least one digit
+                  </li>
+                  <li
+                    className={
+                      /[^A-Za-z0-9]/.test(formData.password)
+                        ? styles.correctFieldValues
+                        : styles.incorrectFieldValues
+                    }
+                  >
+                    {/[^A-Za-z0-9]/.test(formData.password) ? (
+                      <FontAwesomeIcon icon={regular("circle-check")} />
+                    ) : (
+                      <FontAwesomeIcon icon={solid("xmark")} />
+                    )}{" "}
+                    Must contain at least one special character (",*$£...)
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <label htmlFor="passwordMatch">Confirm password</label>
+            <input
+              type="password"
+              name="passwordMatch"
+              id="passwordMatch"
+              required
+              onInput={updateField}
+              placeholder="Write your password again here"
+            />
+          </fieldset>
           <div className={formStyles.finalButtonContainer}>
             <button
               type="submit"
@@ -378,7 +368,7 @@ function Register(props: { messageSetter: React.Dispatch<IMessageValues> }) {
             </button>
           </div>
         </form>
-      </section>
+      </main>
     </>
   );
 }
