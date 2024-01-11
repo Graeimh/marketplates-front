@@ -70,8 +70,8 @@
   text-align: center;
 }
 
-/* For tablets */
-@media only screen and (min-width: 768px) {
+/* For desktop: */
+@media only screen and (min-width: 1024px) {
   #pot {
     bottom: 9rem;
   }
