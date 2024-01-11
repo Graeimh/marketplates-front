@@ -75,7 +75,7 @@ function App() {
         setSessionValue(jose.decodeJwt(loadedSessionData.cookie));
       } catch (err) {
         setMessageValue({
-          message: "We could not reach your session yet, please log in",
+          message: "",
           successStatus: false,
         });
       }

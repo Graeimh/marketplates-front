@@ -100,7 +100,7 @@
 }
 
 /* Navbar */
-#dashboardContainer nav {
+#dashboardContainer #dashboardNavBar {
   position: fixed;
   bottom: 0;
   width: 100%;
@@ -183,7 +183,7 @@
     width: 20rem;
   }
 
-  #dashboardContainer nav {
+  #dashboardContainer #dashboardNavBar {
     width: 8rem;
     height: 100%;
   }
@@ -254,7 +254,7 @@
     overflow: hidden;
   }
 
-  #dashboardContainer nav {
+  #dashboardContainer #dashboardNavBar {
     position: fixed;
     top: 0;
     width: 100%;
