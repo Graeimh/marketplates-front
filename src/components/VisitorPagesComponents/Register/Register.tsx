@@ -213,7 +213,7 @@ function Register(props: { messageSetter: React.Dispatch<IMessageValues> }) {
               placeholder="Country"
             />
           </fieldset>
-          <fieldset className={formStyles.specificData}>
+          <fieldset>
             <legend>Credentials</legend>
             <label htmlFor="displayName">Nickname</label>
             <input

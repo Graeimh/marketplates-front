@@ -1,8 +1,6 @@
 /* || Tooltip for password validity display */
 .toolTip {
   position: relative;
-  display: inline-block;
-  width: 100%;
 }
 
 .toolTip .toolTipValues {
@@ -12,7 +10,6 @@
   padding: 0.5rem;
   border-radius: 6px;
   position: absolute;
-  width: 80%;
   bottom: 100%;
   left: 15%;
   margin-left: -60px;

@@ -1,6 +1,5 @@
 import { useContext, useEffect, useState } from "react";
 import formStyles from "../../../common/styles/Forms.module.scss";
-import iconStyles from "../../../common/styles/Icons.module.scss";
 import styles from "./MapEditor.module.scss";
 import * as mapService from "../../../services/mapService.js";
 import * as placeIterationService from "../../../services/placeIterationService.js";
@@ -785,7 +784,7 @@ function MapEditor(props: {
                     onInput={updatePlaceFilterQueryFields}
                     value={placeFilterQuery.filterTagQuery}
                   />
-                  <div className={iconStyles.iconTitle}>Select tags:</div>
+                  <div>Select tags:</div>
                   {tagListToDisplay.length > 0 &&
                     tagListToDisplay.map((tag) => (
                       <Tag
@@ -814,7 +813,7 @@ function MapEditor(props: {
                     ))}
                   {placeFilterQuery.tags.length > 0 && (
                     <li>
-                      <div className={iconStyles.iconTitle}>Select tags:</div>
+                      <div>Select tags:</div>
                       {placeFilterQuery.tags.map((tag) => (
                         <Tag
                           customStyle={{
