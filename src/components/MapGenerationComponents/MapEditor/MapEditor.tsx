@@ -602,9 +602,9 @@ function MapEditor(props: {
                               formData.privacyStatus === PrivacyStatus.Private
                             }
                           />
+                          <label htmlFor="privacyStatus1">Private</label>
                         </div>
                         <div>
-                          <label htmlFor="privacyStatus1">Private</label>
                           <input
                             type="radio"
                             id="privacyStatus2"
@@ -620,9 +620,9 @@ function MapEditor(props: {
                               formData.privacyStatus === PrivacyStatus.Protected
                             }
                           />
+                          <label htmlFor="privacyStatus2">Friends</label>
                         </div>
                         <div>
-                          <label htmlFor="privacyStatus2">Friends</label>
                           <input
                             type="radio"
                             id="privacyStatus3"
