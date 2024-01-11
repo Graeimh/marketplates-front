@@ -70,15 +70,29 @@
   text-align: center;
 }
 
+/* For tablets */
+@media only screen and (min-width: 768px) {
+  #pot {
+    margin-left: 8rem;
+  }
+
+  #spoon,
+  #spoonWrapper {
+    margin-left: 8rem;
+  }
+}
+
 /* For desktop: */
 @media only screen and (min-width: 1024px) {
   #pot {
     bottom: 9rem;
+    margin-left: 0rem;
   }
 
   #spoon,
   #spoonWrapper {
     bottom: 12rem;
+    margin-left: 0rem;
   }
 }
 
