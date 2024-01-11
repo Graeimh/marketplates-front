@@ -45,7 +45,7 @@ function MyPlaces(props: { messageSetter: React.Dispatch<IMessageValues> }) {
   // Requires user confirmation upon deleting one of their places
   async function handleUserPlaceDeleted(placeId: string) {
     try {
-      if (confirm("Are you sure you want to delete this places?")) {
+      if (confirm("Are you sure you want to delete this place?")) {
         if (checkPermission(userContextValue.status, UserType.User)) {
           await placeService.deletePlaceById(placeId);
           getUserPlaces();

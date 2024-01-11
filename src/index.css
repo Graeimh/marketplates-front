@@ -95,6 +95,26 @@ input[type="number"] {
   text-align: center;
 }
 
+/* // For forms in general */
+
+legend {
+  font-size: 1rem;
+  color: #a32e00;
+  font-weight: 500;
+}
+
+fieldset {
+  border: 2px solid #c3c3c3;
+  border-radius: 5%;
+  margin-bottom: 1rem;
+}
+
+label {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #a32e00;
+}
+
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;

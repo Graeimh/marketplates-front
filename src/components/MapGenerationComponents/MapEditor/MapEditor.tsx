@@ -852,7 +852,7 @@ function MapEditor(props: {
                 <button
                   aria-label={`${
                     addressCollapseVisible ? "Close" : "Open"
-                  } the Create / Edit iteration collapse`}
+                  } the Create / Edit version collapse`}
                   type="button"
                   onClick={() =>
                     setIterationCollapseVisible(!iterationCollapseVisible)
@@ -863,7 +863,7 @@ function MapEditor(props: {
                       : styles.collapseButtonInactive
                   }
                 >
-                  Create / Edit iteration
+                  Create / Edit version
                   <span>
                     {iterationCollapseVisible ? (
                       <FontAwesomeIcon icon={solid("chevron-down")} />
