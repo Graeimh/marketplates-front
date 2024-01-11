@@ -158,8 +158,8 @@ const Layout = (props: {
             </nav>
           </header>
         ) : (
-          <header>
-            <nav>
+          <header aria-label="Website header">
+            <nav id={stylesAdminDashboard.dashboardNavBar}>
               <ul id={stylesAdminDashboard.small}>
                 <li>
                   <Link
