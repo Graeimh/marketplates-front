@@ -55,7 +55,7 @@ const Layout = (props: {
       <div id={stylesUserDashboard.dashboardContainer}>
         {userContextValue.userId.length > 0 ? (
           <header aria-label="Website header">
-            <nav>
+            <nav id={stylesAdminDashboard.dashboardNavBar}>
               <ul id={stylesUserDashboard.small}>
                 <li>
                   <Link
