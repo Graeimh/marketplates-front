@@ -52,11 +52,11 @@ const Layout = (props: {
 
   return (
     <>
-      <div id={stylesUserDashboard.dashboardContainer}>
+      <div id={stylesAdminDashboard.dashboardContainer}>
         {userContextValue.userId.length > 0 ? (
           <header aria-label="Website header">
             <nav id={stylesAdminDashboard.dashboardNavBar}>
-              <ul id={stylesUserDashboard.small}>
+              <ul id={stylesAdminDashboard.small}>
                 <li>
                   <Link
                     className={stylesAdminDashboard.homeButton}
@@ -78,7 +78,7 @@ const Layout = (props: {
                   </button>
                 </li>
                 {userContextValue.status.split("&").indexOf("Admin") !== -1 && (
-                  <li className={stylesUserDashboard.navigationOption}>
+                  <li className={stylesAdminDashboard.navigationOption}>
                     <Link to="/dashboard" aria-label="Navigate to Dashboard">
                       <FontAwesomeIcon icon={solid("gauge")} />
                     </Link>
@@ -135,7 +135,7 @@ const Layout = (props: {
                 </li>
 
                 {userContextValue.status.split("&").indexOf("Admin") !== -1 && (
-                  <li className={stylesUserDashboard.navigationOption}>
+                  <li className={stylesAdminDashboard.navigationOption}>
                     <Link to="/dashboard" aria-label="Navigate to Dashboard">
                       <FontAwesomeIcon icon={solid("gauge")} />
                       <span className={iconStyles.iconTitle}>Dashboard</span>
@@ -160,7 +160,7 @@ const Layout = (props: {
         ) : (
           <header>
             <nav>
-              <ul id={stylesUserDashboard.small}>
+              <ul id={stylesAdminDashboard.small}>
                 <li>
                   <Link
                     className={stylesAdminDashboard.homeButton}
