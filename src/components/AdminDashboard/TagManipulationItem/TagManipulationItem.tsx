@@ -170,11 +170,11 @@ function TagManipulationItem(props: {
         </div>
         <form onSubmit={sendUpdateForm}>
           <fieldset>
-            <label htmlFor={`tagName${formData.tagName}`}>Tag name : </label>
+            <label htmlFor={`tagName${props.tag._id}`}>Tag name : </label>
             <input
               type="text"
               name="tagName"
-              id={`tagName${formData.tagName}`}
+              id={`tagName${props.tag._id}`}
               onInput={updateField}
               value={formData.tagName}
             />
@@ -190,15 +190,13 @@ function TagManipulationItem(props: {
                       style={{ margin: "auto" }}
                     />
                   </div>
-                  <label
-                    htmlFor={`tagBackgroundColor${formData.tagBackgroundColor}`}
-                  >
+                  <label htmlFor={`tagBackgroundColor${props.tag._id}`}>
                     Background Color :{" "}
                   </label>
                   <input
                     type="text"
                     name="tagBackgroundColor"
-                    id={`tagBackgroundColor${formData.tagBackgroundColor}`}
+                    id={`tagBackgroundColor${props.tag._id}`}
                     onInput={updateField}
                     value={formData.tagBackgroundColor}
                   />
@@ -211,13 +209,13 @@ function TagManipulationItem(props: {
                     }
                     style={{ margin: "auto" }}
                   />
-                  <label htmlFor={`tagNameColor${formData.tagNameColor}`}>
+                  <label htmlFor={`tagNameColor${props.tag._id}`}>
                     Name Color :{" "}
                   </label>
                   <input
                     type="text"
                     name="tagNameColor"
-                    id={`tagNameColor${formData.tagNameColor}`}
+                    id={`tagNameColor${props.tag._id}`}
                     onInput={updateField}
                     value={formData.tagNameColor}
                   />
