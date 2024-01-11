@@ -586,54 +586,60 @@ function MapEditor(props: {
                       <legend>Privacy</legend>
                       <h4>Choose your privacy setting:</h4>
                       <div id={styles.privacyRadioContainer}>
-                        <input
-                          type="radio"
-                          id="privacyStatus1"
-                          name="privacyStatus"
-                          value={PrivacyStatus.Private}
-                          onChange={() => {
-                            setFormData({
-                              ...formData,
-                              privacyStatus: PrivacyStatus.Private,
-                            });
-                          }}
-                          checked={
-                            formData.privacyStatus === PrivacyStatus.Private
-                          }
-                        />
-                        <label htmlFor="privacyStatus1">Private</label>
-                        <input
-                          type="radio"
-                          id="privacyStatus2"
-                          name="privacyStatus"
-                          value={PrivacyStatus.Protected}
-                          onChange={() => {
-                            setFormData({
-                              ...formData,
-                              privacyStatus: PrivacyStatus.Protected,
-                            });
-                          }}
-                          checked={
-                            formData.privacyStatus === PrivacyStatus.Protected
-                          }
-                        />
-                        <label htmlFor="privacyStatus2">Friends</label>
-                        <input
-                          type="radio"
-                          id="privacyStatus3"
-                          name="privacyStatus"
-                          value={PrivacyStatus.Public}
-                          onChange={() => {
-                            setFormData({
-                              ...formData,
-                              privacyStatus: PrivacyStatus.Public,
-                            });
-                          }}
-                          checked={
-                            formData.privacyStatus === PrivacyStatus.Public
-                          }
-                        />
-                        <label htmlFor="privacyStatus3">Public</label>
+                        <div>
+                          <input
+                            type="radio"
+                            id="privacyStatus1"
+                            name="privacyStatus"
+                            value={PrivacyStatus.Private}
+                            onChange={() => {
+                              setFormData({
+                                ...formData,
+                                privacyStatus: PrivacyStatus.Private,
+                              });
+                            }}
+                            checked={
+                              formData.privacyStatus === PrivacyStatus.Private
+                            }
+                          />
+                        </div>
+                        <div>
+                          <label htmlFor="privacyStatus1">Private</label>
+                          <input
+                            type="radio"
+                            id="privacyStatus2"
+                            name="privacyStatus"
+                            value={PrivacyStatus.Protected}
+                            onChange={() => {
+                              setFormData({
+                                ...formData,
+                                privacyStatus: PrivacyStatus.Protected,
+                              });
+                            }}
+                            checked={
+                              formData.privacyStatus === PrivacyStatus.Protected
+                            }
+                          />
+                        </div>
+                        <div>
+                          <label htmlFor="privacyStatus2">Friends</label>
+                          <input
+                            type="radio"
+                            id="privacyStatus3"
+                            name="privacyStatus"
+                            value={PrivacyStatus.Public}
+                            onChange={() => {
+                              setFormData({
+                                ...formData,
+                                privacyStatus: PrivacyStatus.Public,
+                              });
+                            }}
+                            checked={
+                              formData.privacyStatus === PrivacyStatus.Public
+                            }
+                          />
+                          <label htmlFor="privacyStatus3">Public</label>
+                        </div>
                       </div>
                     </fieldset>
                   </>
