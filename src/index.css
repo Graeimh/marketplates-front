@@ -115,6 +115,10 @@ label {
   color: #a32e00;
 }
 
+input {
+  margin-bottom: 0.1rem;
+}
+
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;

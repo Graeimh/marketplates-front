@@ -50,41 +50,47 @@ function Profile(props: {
         <link rel="canonical" href="https://marketplates.netlify.app/profile" />
       </Helmet>
       <nav id={stylesUserDashboard.dashboardContentContainer}>
-        <div id={stylesUserDashboard.dashboardPanel}>
-          <Link to="/editprofile" aria-label="Navigate to Edit Profile">
-            <span className={stylesUserDashboard.dashboardOptionChevron}>
-              <FontAwesomeIcon icon={solid("chevron-right")} />
-            </span>
-            <span className={stylesUserDashboard.dashboardOptionText}>
-              Edit my profile
-            </span>
-            <span className={stylesUserDashboard.dashboardOptionDecorator}>
-              <FontAwesomeIcon icon={regular("user")} />
-            </span>
-          </Link>
-          <Link to="/mymaps" aria-label="Navigate to My Maps">
-            <span className={stylesUserDashboard.dashboardOptionChevron}>
-              <FontAwesomeIcon icon={solid("chevron-right")} />
-            </span>
-            <span className={stylesUserDashboard.dashboardOptionText}>
-              My Maps
-            </span>
-            <span className={stylesUserDashboard.dashboardOptionDecorator}>
-              <FontAwesomeIcon icon={solid("map")} />
-            </span>
-          </Link>
-          <Link to="/myplaces" aria-label="Navigate to My Places">
-            <span className={stylesUserDashboard.dashboardOptionChevron}>
-              <FontAwesomeIcon icon={solid("chevron-right")} />
-            </span>
-            <span className={stylesUserDashboard.dashboardOptionText}>
-              My Places
-            </span>
-            <span className={stylesUserDashboard.dashboardOptionDecorator}>
-              <FontAwesomeIcon icon={solid("map-location-dot")} />
-            </span>
-          </Link>
-          <div className={stylesUserDashboard.deleteButton}>
+        <ul id={stylesUserDashboard.dashboardPanel}>
+          <li>
+            <Link to="/editprofile" aria-label="Navigate to Edit Profile">
+              <span className={stylesUserDashboard.dashboardOptionChevron}>
+                <FontAwesomeIcon icon={solid("chevron-right")} />
+              </span>
+              <span className={stylesUserDashboard.dashboardOptionText}>
+                Edit my profile
+              </span>
+              <span className={stylesUserDashboard.dashboardOptionDecorator}>
+                <FontAwesomeIcon icon={regular("user")} />
+              </span>
+            </Link>
+          </li>
+          <li>
+            <Link to="/mymaps" aria-label="Navigate to My Maps">
+              <span className={stylesUserDashboard.dashboardOptionChevron}>
+                <FontAwesomeIcon icon={solid("chevron-right")} />
+              </span>
+              <span className={stylesUserDashboard.dashboardOptionText}>
+                My Maps
+              </span>
+              <span className={stylesUserDashboard.dashboardOptionDecorator}>
+                <FontAwesomeIcon icon={solid("map")} />
+              </span>
+            </Link>
+          </li>
+          <li>
+            <Link to="/myplaces" aria-label="Navigate to My Places">
+              <span className={stylesUserDashboard.dashboardOptionChevron}>
+                <FontAwesomeIcon icon={solid("chevron-right")} />
+              </span>
+              <span className={stylesUserDashboard.dashboardOptionText}>
+                My Places
+              </span>
+              <span className={stylesUserDashboard.dashboardOptionDecorator}>
+                <FontAwesomeIcon icon={solid("map-location-dot")} />
+              </span>
+            </Link>
+          </li>
+          <li className={stylesUserDashboard.deleteButton}>
             <div>
               <Link to="/" onClick={deleteUser} aria-label="Delete my account">
                 <span className={stylesUserDashboard.dashboardOptionChevron}>
@@ -98,8 +104,8 @@ function Profile(props: {
                 </span>
               </Link>
             </div>
-          </div>
-        </div>
+          </li>
+        </ul>
       </nav>
     </>
   );
