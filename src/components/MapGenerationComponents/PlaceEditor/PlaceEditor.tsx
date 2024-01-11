@@ -455,7 +455,7 @@ function PlaceEditor(props: {
                   setTagQuery(e.target.value);
                 }}
               />
-              <div>Select tags:</div>
+              <div className={styles.tagDelimitors}>Select tags:</div>
               {tagListToDisplay.length > 0 &&
                 tagListToDisplay.map((tag) => (
                   <Tag
@@ -480,7 +480,9 @@ function PlaceEditor(props: {
                     key={tag.name}
                   />
                 ))}
-              {formData.tagList.length > 0 && <div>Selected tags :</div>}
+              {formData.tagList.length > 0 && (
+                <div className={styles.tagDelimitors}>Selected tags :</div>
+              )}
               {formData.tagList.length > 0 &&
                 formData.tagList.map((tag) => (
                   <Tag
