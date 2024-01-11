@@ -157,6 +157,7 @@ article h5 {
   margin-top: 0.5rem;
 }
 
-.placeDataContainer * {
+.placeDataContainer *,
+.placeDataContainer * > * {
   text-align: left;
 }
