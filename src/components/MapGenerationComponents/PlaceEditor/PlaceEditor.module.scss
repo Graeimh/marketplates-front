@@ -16,6 +16,12 @@
   display: none;
 }
 
+.tagDelimitors {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #a32e00;
+}
+
 /* For desktop: */
 @media only screen and (min-width: 1024px) {
   #phoneMapContainer {
