@@ -785,7 +785,7 @@ function MapEditor(props: {
                     onInput={updatePlaceFilterQueryFields}
                     value={placeFilterQuery.filterTagQuery}
                   />
-                  <span className={iconStyles.iconTitle}>Select tags:</span>
+                  <div className={iconStyles.iconTitle}>Select tags:</div>
                   {tagListToDisplay.length > 0 &&
                     tagListToDisplay.map((tag) => (
                       <Tag
@@ -814,7 +814,7 @@ function MapEditor(props: {
                     ))}
                   {placeFilterQuery.tags.length > 0 && (
                     <li>
-                      <span className={iconStyles.iconTitle}>Select tags:</span>
+                      <div className={iconStyles.iconTitle}>Select tags:</div>
                       {placeFilterQuery.tags.map((tag) => (
                         <Tag
                           customStyle={{
@@ -935,7 +935,7 @@ function MapEditor(props: {
                           value={iterationValues.description}
                         />
                       </li>
-                      <p>Selected tags :</p>
+                      <div>Selected tags :</div>
                       {iterationValues.tagsList.length > 0 &&
                         tagList
                           .filter((tag) =>
@@ -986,7 +986,7 @@ function MapEditor(props: {
                           value={iterationTagFilterQuery.tagName}
                         />
                       </p>
-                      <p>Select tags:</p>
+                      <div>Select tags:</div>
                       {tagListForIterationToDisplay.length > 0 &&
                         tagListForIterationToDisplay.map((tag) => (
                           <Tag
