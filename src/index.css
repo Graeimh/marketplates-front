@@ -119,6 +119,13 @@ input {
   margin-bottom: 0.2rem;
 }
 
+/* For tablets: */
+@media only screen and (max-width: 767px) {
+  :root {
+    margin-bottom: 15rem;
+  }
+}
+
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
