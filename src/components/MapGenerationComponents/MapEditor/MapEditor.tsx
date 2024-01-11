@@ -602,8 +602,6 @@ function MapEditor(props: {
                           }
                         />
                         <label htmlFor="privacyStatus1">Private</label>
-                      </div>
-                      <div>
                         <input
                           type="radio"
                           id="privacyStatus2"
@@ -620,8 +618,6 @@ function MapEditor(props: {
                           }
                         />
                         <label htmlFor="privacyStatus2">Friends</label>
-                      </div>
-                      <div>
                         <input
                           type="radio"
                           id="privacyStatus3"
