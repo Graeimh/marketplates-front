@@ -65,8 +65,11 @@
     width: 65%;
     top: 1%;
     left: 17.5%;
-    height: 94%;
     margin: auto 0;
+  }
+
+  #formsBackground {
+    height: 120%;
   }
 }
 
@@ -84,6 +87,10 @@
 
   #formsImage {
     width: 50%;
+    height: 100%;
+  }
+
+  #formsBackground {
     height: 100%;
   }
 }
