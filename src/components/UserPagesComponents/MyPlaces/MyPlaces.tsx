@@ -111,6 +111,7 @@ function MyPlaces(props: { messageSetter: React.Dispatch<IMessageValues> }) {
                   </ul>
                 </article>
                 <article className={styles.itemButtonContainer}>
+                  <h3>Management options</h3>
                   <button
                     type="button"
                     onClick={() => navigate(`/editplace/${place._id}`)}
