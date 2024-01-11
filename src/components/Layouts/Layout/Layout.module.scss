@@ -2,6 +2,7 @@
 /* Container */
 #siteContentContainer {
   height: 100%;
+  padding-bottom: 9rem;
 }
 
 /* Burger menu */
@@ -69,6 +70,7 @@
 @media only screen and (min-width: 768px) {
   #siteContentContainer {
     margin-left: 9rem;
+    padding-bottom: 0;
   }
 
   .logout button {
