@@ -147,7 +147,9 @@ function TagManipulationItem(props: {
             `}
       >
         <h2 className={formStyles.itemTitle}>Tag :</h2>
-        <Tag customStyle={style} tagName={props.tag.name} isTiny={false} />
+        <div className={formStyles.tagContainer}>
+          <Tag customStyle={style} tagName={props.tag.name} isTiny={false} />
+        </div>
         <div className={formStyles.managementItemButtoms}>
           <button
             type="button"
