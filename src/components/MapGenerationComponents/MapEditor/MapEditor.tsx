@@ -680,46 +680,48 @@ function MapEditor(props: {
                 }}
                 id={styles.addressListContainer}
               >
-                <h3>Find an address</h3>
-                <label htmlFor="address">Get an address : </label>
-                <input
-                  type="text"
-                  name="address"
-                  id="address"
-                  onInput={(e) => {
-                    setAddressQuery(e.target.value);
-                  }}
-                />
-
-                <div className={formStyles.finalButtonContainer}>
-                  <button
-                    type="button"
-                    onClick={() => {
-                      handleAdressButton();
+                <fieldset>
+                  <legend>Find an address</legend>
+                  <label htmlFor="address">Get an address : </label>
+                  <input
+                    type="text"
+                    name="address"
+                    id="address"
+                    onInput={(e) => {
+                      setAddressQuery(e.target.value);
                     }}
-                  >
-                    Get locations
-                  </button>
-                </div>
+                  />
 
-                {newResults.length > 0 && (
-                  <ul className={formStyles.addressClickables}>
-                    {newResults.map((result) => (
-                      <li
-                        key={result.label}
-                        onClick={() => {
-                          setCoordinates({
-                            longitude: result.x,
-                            latitude: result.y,
-                          });
-                          setNewResults([]);
-                        }}
-                      >
-                        {result.label}
-                      </li>
-                    ))}
-                  </ul>
-                )}
+                  <div className={formStyles.finalButtonContainer}>
+                    <button
+                      type="button"
+                      onClick={() => {
+                        handleAdressButton();
+                      }}
+                    >
+                      Get locations
+                    </button>
+                  </div>
+
+                  {newResults.length > 0 && (
+                    <ul className={formStyles.addressClickables}>
+                      {newResults.map((result) => (
+                        <li
+                          key={result.label}
+                          onClick={() => {
+                            setCoordinates({
+                              longitude: result.x,
+                              latitude: result.y,
+                            });
+                            setNewResults([]);
+                          }}
+                        >
+                          {result.label}
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                </fieldset>
               </article>
               <button
                 aria-label={`${
@@ -759,66 +761,47 @@ function MapEditor(props: {
                     : "0px",
                 }}
               >
-                <h3>Filtering place</h3>
-                <label htmlFor="filterNameQuery">Filter places by name: </label>
-                <input
-                  type="text"
-                  name="filterNameQuery"
-                  id="filterNameQuery"
-                  onInput={updatePlaceFilterQueryFields}
-                  value={placeFilterQuery.filterNameQuery}
-                />
-                <label htmlFor="filterTagQuery">Filter places by tags: </label>
-                <input
-                  type="text"
-                  name="filterTagQuery"
-                  id="filterTagQuery"
-                  onInput={updatePlaceFilterQueryFields}
-                  value={placeFilterQuery.filterTagQuery}
-                />
-                <span className={iconStyles.iconTitle}>Select tags:</span>
-                {tagListToDisplay.length > 0 &&
-                  tagListToDisplay.map((tag) => (
-                    <Tag
-                      customStyle={{
-                        color: tag.nameColor,
-                        backgroundColor: tag.backgroundColor,
-                      }}
-                      tagName={tag.name}
-                      onClick={() => {
-                        setPlaceFilterQuery({
-                          ...placeFilterQuery,
-                          tags: [...placeFilterQuery.tags, tag],
-                        });
-                        setTagFilterList(
-                          tagFilterList.filter((tagId) => tagId._id !== tag._id)
-                        );
-                      }}
-                      isIn={placeFilterQuery.tags.some(
-                        (tagData) => tagData._id === tag._id
-                      )}
-                      isTiny={false}
-                      key={tag.name}
-                    />
-                  ))}
-                {placeFilterQuery.tags.length > 0 && (
-                  <li>
-                    <span className={iconStyles.iconTitle}>Select tags:</span>
-                    {placeFilterQuery.tags.map((tag) => (
+                <fieldset>
+                  <legend>Filtering places</legend>
+                  <label htmlFor="filterNameQuery">
+                    Filter places by name:{" "}
+                  </label>
+                  <input
+                    type="text"
+                    name="filterNameQuery"
+                    id="filterNameQuery"
+                    onInput={updatePlaceFilterQueryFields}
+                    value={placeFilterQuery.filterNameQuery}
+                  />
+                  <label htmlFor="filterTagQuery">
+                    Filter places by tags:{" "}
+                  </label>
+                  <input
+                    type="text"
+                    name="filterTagQuery"
+                    id="filterTagQuery"
+                    onInput={updatePlaceFilterQueryFields}
+                    value={placeFilterQuery.filterTagQuery}
+                  />
+                  <span className={iconStyles.iconTitle}>Select tags:</span>
+                  {tagListToDisplay.length > 0 &&
+                    tagListToDisplay.map((tag) => (
                       <Tag
                         customStyle={{
                           color: tag.nameColor,
                           backgroundColor: tag.backgroundColor,
                         }}
                         tagName={tag.name}
-                        onClose={() => {
+                        onClick={() => {
                           setPlaceFilterQuery({
                             ...placeFilterQuery,
-                            tags: placeFilterQuery.tags.filter(
-                              (tagId) => tagId._id !== tag._id
-                            ),
+                            tags: [...placeFilterQuery.tags, tag],
                           });
-                          setTagFilterList([...tagFilterList, tag]);
+                          setTagFilterList(
+                            tagFilterList.filter(
+                              (tagId) => tagId._id !== tag._id
+                            )
+                          );
                         }}
                         isIn={placeFilterQuery.tags.some(
                           (tagData) => tagData._id === tag._id
@@ -827,22 +810,49 @@ function MapEditor(props: {
                         key={tag.name}
                       />
                     ))}
-                  </li>
-                )}
-                <div className={formStyles.finalButtonContainer}>
-                  <button
-                    type="button"
-                    onClick={() => {
-                      setPlaceFilterQuery({
-                        filterNameQuery: "",
-                        filterTagQuery: "",
-                        tags: [],
-                      });
-                    }}
-                  >
-                    Clear filter
-                  </button>
-                </div>
+                  {placeFilterQuery.tags.length > 0 && (
+                    <li>
+                      <span className={iconStyles.iconTitle}>Select tags:</span>
+                      {placeFilterQuery.tags.map((tag) => (
+                        <Tag
+                          customStyle={{
+                            color: tag.nameColor,
+                            backgroundColor: tag.backgroundColor,
+                          }}
+                          tagName={tag.name}
+                          onClose={() => {
+                            setPlaceFilterQuery({
+                              ...placeFilterQuery,
+                              tags: placeFilterQuery.tags.filter(
+                                (tagId) => tagId._id !== tag._id
+                              ),
+                            });
+                            setTagFilterList([...tagFilterList, tag]);
+                          }}
+                          isIn={placeFilterQuery.tags.some(
+                            (tagData) => tagData._id === tag._id
+                          )}
+                          isTiny={false}
+                          key={tag.name}
+                        />
+                      ))}
+                    </li>
+                  )}
+                  <div className={formStyles.finalButtonContainer}>
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setPlaceFilterQuery({
+                          filterNameQuery: "",
+                          filterTagQuery: "",
+                          tags: [],
+                        });
+                      }}
+                    >
+                      Clear filter
+                    </button>
+                  </div>
+                </fieldset>
               </article>
             </article>
           </form>
