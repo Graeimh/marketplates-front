@@ -49,8 +49,8 @@ function Profile(props: {
         <title>Profile</title>
         <link rel="canonical" href="https://marketplates.netlify.app/profile" />
       </Helmet>
-      <nav id={stylesUserDashboard.dashboardContentContainer}>
-        <ul id={stylesUserDashboard.dashboardPanel}>
+      <nav id={stylesUserDashboard.dashboardPanel}>
+        <ul id={stylesUserDashboard.navPanel}>
           <li>
             <Link to="/editprofile" aria-label="Navigate to Edit Profile">
               <span className={stylesUserDashboard.dashboardOptionChevron}>
