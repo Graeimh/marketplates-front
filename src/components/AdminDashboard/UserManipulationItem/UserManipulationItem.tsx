@@ -129,7 +129,7 @@ function UserManipulationItem(props: {
         <h2 className={formStyles.itemTitle}>
           User : {props.user.displayName}
         </h2>
-        <div>
+        <div className={formStyles.managementItemButtoms}>
           <button
             type="button"
             className={props.IsSelected ? styles.primedButton : ""}

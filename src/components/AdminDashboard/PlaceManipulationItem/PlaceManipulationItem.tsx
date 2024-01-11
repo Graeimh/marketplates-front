@@ -78,7 +78,7 @@ function PlaceManipulationItem(props: {
       >
         <h2 className={formStyles.itemTitle}>{props.place.name}</h2>
 
-        <div>
+        <div className={formStyles.managementItemButtoms}>
           <button
             type="button"
             className={props.IsSelected ? itemStyles.primedButton : ""}

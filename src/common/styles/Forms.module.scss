@@ -140,3 +140,14 @@ article h5 {
 .addressClickables li:hover {
   background-color: #e4e4e4;
 }
+
+.managementItemButtoms {
+  margin: 1.2rem;
+  display: flex;
+  justify-content: center;
+}
+
+.managementItemButtoms button,
+.managementItemButtoms span {
+  margin: 1.2rem;
+}
