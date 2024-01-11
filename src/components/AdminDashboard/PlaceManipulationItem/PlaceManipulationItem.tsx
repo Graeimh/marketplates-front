@@ -99,7 +99,7 @@ function PlaceManipulationItem(props: {
             </button>
           </span>
         </div>
-        <article>
+        <article className={formStyles.placeDataContainer}>
           <h5>Address :</h5>
           {props.place.address}
           <h5>Description :</h5>
