@@ -44,7 +44,7 @@
 #spoon,
 #spoonWrapper {
   position: absolute;
-  bottom: 12rem;
+  bottom: -6rem;
   margin: 0 auto;
   left: 0;
   right: 0;
@@ -63,11 +63,23 @@
 /* Positionning for for the pot */
 #pot {
   position: absolute;
-  bottom: 9rem;
+  bottom: 4.4rem;
   margin: 0 auto;
   left: 0;
   right: 0;
   text-align: center;
+}
+
+/* For tablets */
+@media only screen and (min-width: 768px) {
+  #pot {
+    bottom: 12rem;
+  }
+
+  #spoon,
+  #spoonWrapper {
+    bottom: 9rem;
+  }
 }
 
 /* When the spoon moves horizontally and its container moves vertically a curve trajectory is drawn instead of a regular A to B motion*/
